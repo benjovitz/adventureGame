@@ -83,7 +83,7 @@ public class Adventure {
 
         String filePath = "Ophira Zakai - Renaissance Lute.wav";
         String filePath2 = "Torch Burning Sound Effect.wav";
-        Main obj = new Main();
+        Adventure obj = new Adventure() ;
         obj.playMusic(filePath);
         obj.playMusic(filePath2);
 
@@ -160,6 +160,7 @@ public class Adventure {
                 Clip clip = AudioSystem.getClip();
                 clip.open(audioInput);
                 clip.start();
+                clip.loop(Clip.LOOP_CONTINUOUSLY);
                 JOptionPane.showMessageDialog(null, "press ok to stop playing");
             }
             else{
