@@ -41,7 +41,7 @@ public class Main {
 
         //room 4 moves
         //room4.setWest(room4);
-       // room4.setEast(room4);
+        // room4.setEast(room4);
         room4.setNorth(room1);
         room4.setSouth(room7);
 
@@ -78,48 +78,57 @@ public class Main {
 
         Scanner keyboard = new Scanner(System.in);
         boolean stillRunning = true;
-        while (stillRunning) {
 
+        while (stillRunning) {
             String command = keyboard.nextLine();
+
+
             switch (command) {
-                case "look" -> System.out.println(currentRoom.getDescription());
-                case "north","go north","n" -> {
-                    if(currentRoom.getNorth()!=null){
-                    System.out.println("going north");
-                    currentRoom=currentRoom.getNorth();}
-                    else{
-                        System.out.println("you cant enter here");
-                    }
-                }
-                case "south" -> {
-                    if (currentRoom.getSouth()!=null){
-                    System.out.println("going south");
-                    currentRoom=currentRoom.getSouth();}
-                    else{
-                        System.out.println("you cant enter here");
-                    }
-                }
-                case "west" -> {
-                    if(currentRoom.getWest()!=null){
-                    System.out.println("going west");
-                    currentRoom=currentRoom.getWest();}
-                    else{
-                        System.out.println("you cant enter here");
-                    }
-                }
-                case "east" -> {
-                    if(currentRoom.getEast()!=null){
-                    System.out.println("going east");
-                    currentRoom=currentRoom.getEast();}
-                    else{
-                        System.out.println("you cant enter here");
-                    }
-                }
-                case "exit" -> System.out.println("exit game");
-                   //stillRunning = false;
+                case "north":
+
+                    if (currentRoom.getNorth() != null) {
+                        currentRoom = currentRoom.getNorth();
+                        System.out.println("going north");
+                    } else System.out.println("you cant go that way");
+                    break;
+                case "south":
+                    if (currentRoom.getSouth() != null) {
+                        currentRoom = currentRoom.getSouth();
+                        System.out.println("going south");
+                    } else System.out.println("you cant go that way");
+                    break;
+                case "west":
+                    if (currentRoom.getWest() != null) {
+                        currentRoom = currentRoom.getWest();
+                        System.out.println("going west");
+                    } else System.out.println("you cant go that way");
+                    break;
+                case "east":
+                    if (currentRoom.getEast() != null) {
+                        currentRoom = currentRoom.getEast();
+                        System.out.println("going east");
+                    } else System.out.println("you cant go that way");
+                    break;
+
+                case "look":
+                    System.out.println(currentRoom.getDescription());
+                    break;
+                case "help":
+                    System.out.print("this is the help transscript, you can go north, south, east or west." +
+                            " Enter either: " +
+                            "south; east; north; west.");
+                    System.out.println("  to look around type: look");
+                    break;
+                case "exit":
+                    System.out.println("exit game");
+                    System.out.println(currentRoom.getName());
+                    stillRunning = false;
+
+                    break;
+
             }
         }
-    }
 
+    }
 }
 
