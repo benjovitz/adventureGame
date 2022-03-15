@@ -7,11 +7,13 @@ public class Rooms {
     private Rooms south;
     private Rooms east;
     private Rooms west;
+    private int roomBehavior;
 
 
     public Rooms (String name,String description){
         this.name=name;
         this.description=description;
+        this.roomBehavior = 1;
     }
 
     public void setNorth(Rooms north) {
@@ -61,4 +63,13 @@ public class Rooms {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setRoomBehavior(int roomBehavior){
+        this.roomBehavior = roomBehavior;
+    }
+
+    public int getRoomBehavior(){
+        return roomBehavior;
+    }
+
 }

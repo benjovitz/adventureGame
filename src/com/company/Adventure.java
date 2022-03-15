@@ -16,7 +16,8 @@ public class Adventure {
     }
 
     public void mainMenu() {
-        Rooms room1 = new Rooms("Rum1 ", "Det her er rum 1");
+
+        Rooms room1 = new Rooms("Rum1 ", "The room your standing in is dimly lit room, a fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
         Rooms room2 = new Rooms("Rum2 ", "Det her er rum 2");
         Rooms room3 = new Rooms("Rum3 ", "Det her er rum 3");
         Rooms room4 = new Rooms("Rum4 ", "Det her er rum 4");
@@ -88,8 +89,8 @@ public class Adventure {
         obj.playMusic(filePath2);
 
 
-
-
+        //intro
+        System.out.println("You wake up drowzy and confused. The room your standing in is dimly lit room, a fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
 
         Scanner keyboard = new Scanner(System.in);
         boolean stillRunning = true;
@@ -105,24 +106,40 @@ public class Adventure {
                     if (currentRoom.getNorth() != null) {
                         currentRoom = currentRoom.getNorth();
                         System.out.println("going north");
+                        if(currentRoom.getRoomBehavior() == 1) {
+                            System.out.println(currentRoom.getDescription());
+                            currentRoom.setRoomBehavior(0);
+                        }
                     } else System.out.println("you cant go that way");
                     break;
                 case "south","go south","s":
                     if (currentRoom.getSouth() != null) {
                         currentRoom = currentRoom.getSouth();
                         System.out.println("going south");
+                        if(currentRoom.getRoomBehavior() == 1) {
+                            System.out.println(currentRoom.getDescription());
+                            currentRoom.setRoomBehavior(0);
+                        }
                     } else System.out.println("you cant go that way");
                     break;
                 case "west","go west","w":
                     if (currentRoom.getWest() != null) {
                         currentRoom = currentRoom.getWest();
                         System.out.println("going west");
+                        if(currentRoom.getRoomBehavior() == 1) {
+                            System.out.println(currentRoom.getDescription());
+                            currentRoom.setRoomBehavior(0);
+                        }
                     } else System.out.println("you cant go that way");
                     break;
                 case "east","go east","e":
                     if (currentRoom.getEast() != null) {
                         currentRoom = currentRoom.getEast();
                         System.out.println("going east");
+                        if(currentRoom.getRoomBehavior() == 1) {
+                            System.out.println(currentRoom.getDescription());
+                            currentRoom.setRoomBehavior(0);
+                        }
                     } else System.out.println("you cant go that way");
                     break;
 
@@ -137,21 +154,18 @@ public class Adventure {
                     break;
                 case "exit":
                     System.out.println("exit game");
-                    System.out.println(currentRoom.getName());
+                    //System.out.println(currentRoom.getName());
                     stillRunning = false;
 
                     break;
 
             }
+
         }
 
     }
 
-
-
-
-
-
+    //music
     public void playMusic(String musicLocation){
         try{
             File musicPath = new File(musicLocation);
