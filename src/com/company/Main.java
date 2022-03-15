@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Main {
@@ -41,7 +42,7 @@ public class Main {
 
         //room 4 moves
         //room4.setWest(room4);
-        // room4.setEast(room4);
+       // room4.setEast(room4);
         room4.setNorth(room1);
         room4.setSouth(room7);
 
@@ -78,42 +79,43 @@ public class Main {
 
         Scanner keyboard = new Scanner(System.in);
         boolean stillRunning = true;
-
         while (stillRunning) {
+
             String command = keyboard.nextLine();
+            String switchCommand=command.substring(0,command.length()).toLowerCase(Locale.ROOT);
 
 
-            switch (command) {
-                case "north":
+            switch (switchCommand) {
+                case "north","go north","n":
 
                     if (currentRoom.getNorth() != null) {
                         currentRoom = currentRoom.getNorth();
                         System.out.println("going north");
                     } else System.out.println("you cant go that way");
                     break;
-                case "south":
+                case "south","go south","s":
                     if (currentRoom.getSouth() != null) {
                         currentRoom = currentRoom.getSouth();
                         System.out.println("going south");
                     } else System.out.println("you cant go that way");
                     break;
-                case "west":
+                case "west","go west","w":
                     if (currentRoom.getWest() != null) {
                         currentRoom = currentRoom.getWest();
                         System.out.println("going west");
                     } else System.out.println("you cant go that way");
                     break;
-                case "east":
+                case "east","go east","e":
                     if (currentRoom.getEast() != null) {
                         currentRoom = currentRoom.getEast();
                         System.out.println("going east");
                     } else System.out.println("you cant go that way");
                     break;
 
-                case "look":
+                case "look","l":
                     System.out.println(currentRoom.getDescription());
                     break;
-                case "help":
+                case "help","h":
                     System.out.print("this is the help transscript, you can go north, south, east or west." +
                             " Enter either: " +
                             "south; east; north; west.");
@@ -130,5 +132,6 @@ public class Main {
         }
 
     }
+
 }
 
