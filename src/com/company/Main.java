@@ -1,7 +1,13 @@
 package com.company;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.swing.*;
+import java.io.File;
 import java.util.Locale;
 import java.util.Scanner;
+
 
 public class Main {
 
@@ -76,6 +82,15 @@ public class Main {
         room9.setNorth(room6);
         room9.setWest(room8);
 
+        String filePath = "Ophira Zakai - Renaissance Lute.wav";
+        String filePath2 = "Torch Burning Sound Effect.wav";
+        Main obj = new Main();
+        obj.playMusic(filePath);
+        obj.playMusic(filePath2);
+
+
+
+
 
         Scanner keyboard = new Scanner(System.in);
         boolean stillRunning = true;
@@ -129,6 +144,30 @@ public class Main {
                     break;
 
             }
+        }
+
+    }
+
+
+
+
+
+
+    public void playMusic(String musicLocation){
+        try{
+            File musicPath = new File(musicLocation);
+            if(musicPath.exists()){
+                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioInput);
+                clip.start();
+                JOptionPane.showMessageDialog(null, "press ok to stop playing");
+            }
+            else{
+                System.out.println("cant find file");
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
         }
 
     }
