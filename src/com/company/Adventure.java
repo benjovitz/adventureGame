@@ -3,10 +3,10 @@ package com.company;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class Main {
+public class Adventure {
 
     public static void main(String[] args) {
-        Main obj = new Main();
+        Adventure obj = new Adventure();
         obj.mainMenu();
     }
 
@@ -83,8 +83,6 @@ public class Main {
 
             String command = keyboard.nextLine();
             String switchCommand=command.substring(0,command.length()).toLowerCase(Locale.ROOT);
-
-
             switch (switchCommand) {
                 case "north","go north","n":
 
