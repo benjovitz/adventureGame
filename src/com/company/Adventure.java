@@ -82,15 +82,16 @@ public class Adventure {
         room9.setNorth(room6);
         room9.setWest(room8);
 
-        String filePath = "Ophira Zakai - Renaissance Lute.wav";
+        //String filePath = "Ophira Zakai - Renaissance Lute.wav";
         String filePath2 = "Torch Burning Sound Effect.wav";
+        String filePath ="magic lute.wav";
         Adventure obj = new Adventure() ;
         obj.playMusic(filePath);
-        obj.playMusic(filePath2);
+        //obj.playMusic(filePath2);
 
 
         //intro
-        System.out.println("You wake up drowzy and confused. The room your standing in is dimly lit room, a fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
+        System.out.printf("You wake up drowzy and confused. The room your standing in is dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
 
         Scanner keyboard = new Scanner(System.in);
         boolean stillRunning = true;
@@ -175,7 +176,7 @@ public class Adventure {
                 clip.open(audioInput);
                 clip.start();
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
-                JOptionPane.showMessageDialog(null, "press ok to stop playing");
+                JOptionPane.showMessageDialog(null, "The game is now beginning, press ok to start");
             }
             else{
                 System.out.println("cant find file");
