@@ -60,12 +60,16 @@ public class Adventure {
         //movement directionpicker
     public void playerMovement(String direction) {
         if (direction.equals("north") || direction.equals("n")) {
+            print(textObj.movement(direction));
             moveNorth();
         } else if (direction.equals("south") || direction.equals("s")) {
+            print(textObj.movement(direction));
             moveSouth();
         } else if (direction.equals("west") || direction.equals("w")) {
+            print(textObj.movement(direction));
             moveWest();
         } else if (direction.equals("east") || direction.equals("e")) {
+            print(textObj.movement(direction));
             moveEast();
         }else {
             textObj.invalidInput();
@@ -116,6 +120,9 @@ public class Adventure {
             System.out.println(player1.getCurrentRoom().getDescription());
             player1.getCurrentRoom().setRoomBehavior(0);
         }
+    }
+    public void print(String print){
+        System.out.println(print);
     }
 
 }
