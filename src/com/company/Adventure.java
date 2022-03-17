@@ -1,13 +1,18 @@
 package com.company;
+
 import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
+    Player player1 = new Player();
+    Text textObj = new Text();
 
     public static void main(String[] args) {
         Adventure obj = new Adventure();
+
         obj.mainMenu();
     }
+
     public void mainMenu() {
         //scanner oprettet
         Scanner keyboard = new Scanner(System.in);
@@ -15,82 +20,108 @@ public class Adventure {
         Map map = new Map();
         map.createRooms();
         //music oprettet, spillet og filepath defineret
-        String filePath ="magic lute.wav";
+        String filePath = "magic lute.wav";
         Music music1 = new Music();
         music1.playMusic(filePath);
         //player oprettet og player pos sat til room1.
-        Player player1 = new Player();
         player1.setNewRoom(map.getStarterRoom());
-        Text textObj = new Text();
-        textObj.intro();
 
+        textObj.intro();
 
 
         boolean stillRunning = true;
         while (stillRunning) {
 
-            String command = keyboard.nextLine();
-            String switchCommand=command.substring(0,command.length()).toLowerCase(Locale.ROOT);
+            String command = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
+            //movement command
+            if (command.startsWith("go ")) {
+                String direction = command.substring(command.indexOf(" ") + 1);
+                playerMovement(direction);
 
+            } else {
+                //switch for help commands
+                switch (command) {
+                    case "look", "l"->
+                        System.out.println(player1.getCurrentRoom().getDescription());
+                    case "help", "h"->
+                        textObj.help();
+                    case "exit"-> stillRunning = false;
 
-            switch (switchCommand) {
-                case "north","go north","n":
+                    default ->
+                        textObj.invalidInput();
 
-                    if (player1.getCurrentRoom().getNorth() != null) {
-                        player1.playerPos = player1.getCurrentRoom().getNorth();
-                        System.out.println("going north");
-                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
-                            System.out.println(player1.getCurrentRoom().getDescription());
-                            player1.getCurrentRoom().setRoomBehavior(0);
-                        }
-                    } else textObj.invalidRoute();
-                    break;
-                case "south","go south","s":
-                    if (player1.getCurrentRoom().getSouth() != null) {
-                        player1.playerPos = player1.getCurrentRoom().getSouth();
-                        System.out.println("going south");
-                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
-                            System.out.println(player1.getCurrentRoom().getDescription());
-                            player1.getCurrentRoom().setRoomBehavior(0);
-                        }
-                    } else textObj.invalidRoute();
-                    break;
-                case "west","go west","w":
-                    if (player1.getCurrentRoom().getWest() != null) {
-                        player1.playerPos = player1.getCurrentRoom().getWest();
-                        System.out.println("going west");
-                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
-                            System.out.println(player1.getCurrentRoom().getDescription());
-                            player1.getCurrentRoom().setRoomBehavior(0);
-                        }
-                    } else textObj.invalidRoute();;
-                    break;
-                case "east","go east","e":
-                    if (player1.getCurrentRoom().getEast() != null) {
-                        player1.playerPos = player1.getCurrentRoom().getEast();
-                        System.out.println("going east");
-                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
-                            System.out.println(player1.getCurrentRoom().getDescription());
-                            player1.getCurrentRoom().setRoomBehavior(0);
-                        }
-                    } else textObj.invalidRoute();
-                    break;
-
-                case "look","l":
-                    System.out.println(player1.getCurrentRoom().getDescription());
-                    break;
-                case "help","h":
-                   textObj.help();
-                    break;
-                case "exit":
-                    textObj.exit();
-                    stillRunning = false;
-                    break;
-
+                }
             }
 
         }
+        textObj.exit();
 
     }
+        //movement directionpicker
+    public void playerMovement(String direction) {
+        if (direction.equals("north") || direction.equals("n")) {
+            moveNorth();
+        } else if (direction.equals("south") || direction.equals("s")) {
+            moveSouth();
+        } else if (direction.equals("west") || direction.equals("w")) {
+            moveWest();
+        } else if (direction.equals("east") || direction.equals("e")) {
+            moveEast();
+        }else {
+            textObj.invalidInput();
+        }
+
+    }
+
+        //movement mechanic
+    public void moveNorth() {
+        if (player1.getCurrentRoom().getNorth() != null) {
+            player1.playerPos = player1.getCurrentRoom().getNorth();
+            roomBehavior();
+        } else {
+            textObj.invalidRoute();
+        }
+    }
+        //same
+    public void moveSouth() {
+        if (player1.getCurrentRoom().getSouth() != null) {
+            player1.playerPos = player1.getCurrentRoom().getSouth();
+            roomBehavior();
+        } else {
+            textObj.invalidRoute();
+        }
+    }
+        //same
+    public void moveWest() {
+        if (player1.getCurrentRoom().getWest() != null) {
+            player1.playerPos = player1.getCurrentRoom().getWest();
+            roomBehavior();
+        } else {
+            textObj.invalidRoute();
+        }
+
+    }
+        //same
+    public void moveEast() {
+        if (player1.getCurrentRoom().getEast() != null) {
+            player1.playerPos = player1.getCurrentRoom().getEast();
+            roomBehavior();
+        } else {
+            textObj.invalidRoute();
+        }
+    }
+        //checking if you have been in the room beforehand
+    public void roomBehavior() {
+        if (player1.getCurrentRoom().getRoomBehavior() == 1) {
+            System.out.println(player1.getCurrentRoom().getDescription());
+            player1.getCurrentRoom().setRoomBehavior(0);
+        }
+    }
+
 }
+
+
+
+
+
 

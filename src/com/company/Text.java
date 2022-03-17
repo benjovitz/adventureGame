@@ -3,13 +3,13 @@ package com.company;
 public class Text {
 
     public void intro(){
-        System.out.printf("You wake up drowzy and confused. The room your standing in is dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
+        System.out.printf("You wake up drowzy and confused. The room your standing in is dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner\n");
 
     }
 
     public void help(){
         System.out.print("this is the help transscript, you can go north, south, east or west." +
-                " Enter either: " +
+                " Enter either: go" +
                 "south; east; north; west.");
         System.out.println("  to look around type: look");
 
@@ -20,7 +20,10 @@ public class Text {
     }
 
     public void invalidRoute(){
-        System.out.println("you cant go that way");
+        System.out.println("You cant go that way");
+    }
+    public void invalidInput(){
+        System.out.println("Invalid input");
     }
 
 }
