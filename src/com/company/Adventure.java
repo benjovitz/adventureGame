@@ -17,77 +17,19 @@ public class Adventure {
 
     public void mainMenu() {
 
-        Rooms room1 = new Rooms("Rum1 ", "The room your standing in is dimly lit room, a fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
-        Rooms room2 = new Rooms("Rum2 ", "Det her er rum 2");
-        Rooms room3 = new Rooms("Rum3 ", "Det her er rum 3");
-        Rooms room4 = new Rooms("Rum4 ", "Det her er rum 4");
-        Rooms room5 = new Rooms("Rum5 ", "Det her er rum 5");
-        Rooms room6 = new Rooms("Rum6 ", "Det her er rum 6");
-        Rooms room7 = new Rooms("Rum7 ", "Det her er rum 7");
-        Rooms room8 = new Rooms("Rum8 ", "Det her er rum 8");
-        Rooms room9 = new Rooms("Rum9 ", "Det her er rum 9");
-
-        Rooms currentRoom = room1;
-        //room 1 moves
-        //room1.setWest(room1);
-        //room1.setNorth(room1);
-        room1.setEast(room2);
-        room1.setSouth(room4);
-
-        //room 2 moves
-        //room2.setNorth(room2);
-        //room2.setSouth(room2);
-        room2.setWest(room1);
-        room2.setEast(room3);
-
-        //room 3 moves
-        //room3.setNorth(room3);
-        //room3.setEast(room3);
-        room3.setWest(room2);
-        room3.setSouth(room6);
-
-        //room 4 moves
-        //room4.setWest(room4);
-       // room4.setEast(room4);
-        room4.setNorth(room1);
-        room4.setSouth(room7);
-
-        //room 5 moves
-        //room5.setEast(room5);
-        //room5.setNorth(room5);
-        //room5.setWest(room5);
-        room5.setSouth(room8);
-
-        //room 6 moves
-        //room6.setEast(room6);
-        //room6.setWest(room6);
-        room6.setNorth(room3);
-        room6.setSouth(room9);
-
-        //room 7 moves
-        //room7.setSouth(room7);
-        //room7.setWest(room7);
-        room7.setNorth(room4);
-        room7.setEast(room8);
-
-        //room 8 moves
-        //room8.setSouth(room8);
-        //room8.setNorth(room5);
-        room8.setEast(room9);
-        room8.setWest(room7);
-
-        //room 9 moves
-        //room9.setEast(room9);
-        //room9.setSouth(room9);
-        room9.setNorth(room6);
-        room9.setWest(room8);
-
         //String filePath = "Ophira Zakai - Renaissance Lute.wav";
         String filePath2 = "Torch Burning Sound Effect.wav";
         String filePath ="magic lute.wav";
         Adventure obj = new Adventure() ;
+        Map map = new Map();
+        map.createRooms();
         obj.playMusic(filePath);
-        //obj.playMusic(filePath2);
+        Player player1 = new Player();
+
+
+
+
+
 
 
         //intro
@@ -104,48 +46,48 @@ public class Adventure {
             switch (switchCommand) {
                 case "north","go north","n":
 
-                    if (currentRoom.getNorth() != null) {
-                        currentRoom = currentRoom.getNorth();
+                    if (map.starterRoom.getNorth() != null) {
+                        map.starterRoom = map.starterRoom.getNorth();
                         System.out.println("going north");
-                        if(currentRoom.getRoomBehavior() == 1) {
-                            System.out.println(currentRoom.getDescription());
-                            currentRoom.setRoomBehavior(0);
+                        if(map.starterRoom.getRoomBehavior() == 1) {
+                            System.out.println(map.starterRoom.getDescription());
+                            map.starterRoom.setRoomBehavior(0);
                         }
                     } else System.out.println("you cant go that way");
                     break;
                 case "south","go south","s":
-                    if (currentRoom.getSouth() != null) {
-                        currentRoom = currentRoom.getSouth();
+                    if (map.starterRoom.getSouth() != null) {
+                        map.starterRoom = map.starterRoom.getSouth();
                         System.out.println("going south");
-                        if(currentRoom.getRoomBehavior() == 1) {
-                            System.out.println(currentRoom.getDescription());
-                            currentRoom.setRoomBehavior(0);
+                        if(map.starterRoom.getRoomBehavior() == 1) {
+                            System.out.println(map.starterRoom.getDescription());
+                            map.starterRoom.setRoomBehavior(0);
                         }
                     } else System.out.println("you cant go that way");
                     break;
                 case "west","go west","w":
-                    if (currentRoom.getWest() != null) {
-                        currentRoom = currentRoom.getWest();
+                    if (map.starterRoom.getWest() != null) {
+                        map.starterRoom = map.starterRoom.getWest();
                         System.out.println("going west");
-                        if(currentRoom.getRoomBehavior() == 1) {
-                            System.out.println(currentRoom.getDescription());
-                            currentRoom.setRoomBehavior(0);
+                        if(map.starterRoom.getRoomBehavior() == 1) {
+                            System.out.println(map.starterRoom.getDescription());
+                            map.starterRoom.setRoomBehavior(0);
                         }
                     } else System.out.println("you cant go that way");
                     break;
                 case "east","go east","e":
-                    if (currentRoom.getEast() != null) {
-                        currentRoom = currentRoom.getEast();
+                    if (map.starterRoom.getEast() != null) {
+                        map.starterRoom = map.starterRoom.getEast();
                         System.out.println("going east");
-                        if(currentRoom.getRoomBehavior() == 1) {
-                            System.out.println(currentRoom.getDescription());
-                            currentRoom.setRoomBehavior(0);
+                        if(map.starterRoom.getRoomBehavior() == 1) {
+                            System.out.println(map.starterRoom.getDescription());
+                            map.starterRoom.setRoomBehavior(0);
                         }
                     } else System.out.println("you cant go that way");
                     break;
 
                 case "look","l":
-                    System.out.println(currentRoom.getDescription());
+                    System.out.println(map.starterRoom.getDescription());
                     break;
                 case "help","h":
                     System.out.print("this is the help transscript, you can go north, south, east or west." +
@@ -176,7 +118,7 @@ public class Adventure {
                 clip.open(audioInput);
                 clip.start();
                 clip.loop(Clip.LOOP_CONTINUOUSLY);
-                JOptionPane.showMessageDialog(null, "The game is now beginning, press ok to start");
+                //JOptionPane.showMessageDialog(null, "The game is now beginning, press ok to start");
             }
             else{
                 System.out.println("cant find file");

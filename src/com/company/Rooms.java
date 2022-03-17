@@ -8,12 +8,14 @@ public class Rooms {
     private Rooms east;
     private Rooms west;
     private int roomBehavior;
+    private Rooms room;
 
 
     public Rooms (String name,String description){
         this.name=name;
         this.description=description;
         this.roomBehavior = 1;
+
     }
 
     public void setNorth(Rooms north) {
@@ -30,6 +32,10 @@ public class Rooms {
 
     public void setEast(Rooms east){
         this.east=east;
+    }
+
+    public void setRoom(Rooms room){
+        this.room = room;
     }
 
     public Rooms getNorth() {
