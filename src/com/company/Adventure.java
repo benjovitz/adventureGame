@@ -41,14 +41,14 @@ public class Adventure {
             } else {
                 //switch for help commands
                 switch (command) {
-                    case "look", "l"->
-                        System.out.println(player1.getCurrentRoom().getDescription());
-                    case "help", "h"->
-                        textObj.help();
-                    case "exit"-> stillRunning = false;
+                    case "look", "l" -> System.out.println(player1.getCurrentRoom().getDescription());
+                    case "help", "h" -> textObj.help();
+                    case "exit" -> {
+                        stillRunning = false;
+                        textObj.exit();
+                    }
 
-                    default ->
-                        textObj.invalidInput();
+                    default -> textObj.invalidInput();
 
                 }
             }
@@ -57,7 +57,8 @@ public class Adventure {
         textObj.exit();
 
     }
-        //movement directionpicker
+
+    //movement directionpicker
     public void playerMovement(String direction) {
         switch (direction) {
             case "north", "n" -> {
@@ -81,7 +82,7 @@ public class Adventure {
 
     }
 
-        //movement mechanic
+    //movement mechanic
     public void moveNorth() {
         if (player1.getCurrentRoom().getNorth() != null) {
             player1.playerPos = player1.getCurrentRoom().getNorth();
@@ -90,7 +91,8 @@ public class Adventure {
             textObj.invalidRoute();
         }
     }
-        //same
+
+    //same
     public void moveSouth() {
         if (player1.getCurrentRoom().getSouth() != null) {
             player1.playerPos = player1.getCurrentRoom().getSouth();
@@ -99,7 +101,8 @@ public class Adventure {
             textObj.invalidRoute();
         }
     }
-        //same
+
+    //same
     public void moveWest() {
         if (player1.getCurrentRoom().getWest() != null) {
             player1.playerPos = player1.getCurrentRoom().getWest();
@@ -109,7 +112,8 @@ public class Adventure {
         }
 
     }
-        //same
+
+    //same
     public void moveEast() {
         if (player1.getCurrentRoom().getEast() != null) {
             player1.playerPos = player1.getCurrentRoom().getEast();
@@ -118,14 +122,16 @@ public class Adventure {
             textObj.invalidRoute();
         }
     }
-        //checking if you have been in the room beforehand
+
+    //checking if you have been in the room beforehand
     public void roomBehavior() {
         if (player1.getCurrentRoom().getRoomBehavior() == 1) {
             System.out.println(player1.getCurrentRoom().getDescription());
             player1.getCurrentRoom().setRoomBehavior(0);
         }
     }
-    public void print(String print){
+
+    public void print(String print) {
         System.out.println(print);
     }
 
