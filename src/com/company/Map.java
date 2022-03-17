@@ -6,7 +6,7 @@ public class Map {
 
     public void createRooms() {
 
-        Rooms room1 = new Rooms("Rum1 ", "The room your standing in is dimly lit room, a fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
+        Rooms room1 = new Rooms("Rum1 ", "Det her er rum 1");
         Rooms room2 = new Rooms("Rum2 ", "Det her er rum 2");
         Rooms room3 = new Rooms("Rum3 ", "Det her er rum 3");
         Rooms room4 = new Rooms("Rum4 ", "Det her er rum 4");
@@ -67,7 +67,7 @@ public class Map {
 
         //room 8 moves
         //room8.setSouth(room8);
-        //room8.setNorth(room5);
+        room8.setNorth(room5);
         room8.setEast(room9);
         room8.setWest(room7);
 

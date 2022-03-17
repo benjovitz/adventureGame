@@ -39,9 +39,9 @@ public class Adventure {
                     if (player1.getCurrentRoom().getNorth() != null) {
                         player1.playerPos = player1.getCurrentRoom().getNorth();
                         System.out.println("going north");
-                        if(map.starterRoom.getRoomBehavior() == 1) {
-                            System.out.println(map.starterRoom.getDescription());
-                            map.starterRoom.setRoomBehavior(0);
+                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
+                            System.out.println(player1.getCurrentRoom().getDescription());
+                            player1.getCurrentRoom().setRoomBehavior(0);
                         }
                     } else textObj.invalidRoute();
                     break;
@@ -49,9 +49,9 @@ public class Adventure {
                     if (player1.getCurrentRoom().getSouth() != null) {
                         player1.playerPos = player1.getCurrentRoom().getSouth();
                         System.out.println("going south");
-                        if(map.starterRoom.getRoomBehavior() == 1) {
-                            System.out.println(map.starterRoom.getDescription());
-                            map.starterRoom.setRoomBehavior(0);
+                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
+                            System.out.println(player1.getCurrentRoom().getDescription());
+                            player1.getCurrentRoom().setRoomBehavior(0);
                         }
                     } else textObj.invalidRoute();
                     break;
@@ -59,9 +59,9 @@ public class Adventure {
                     if (player1.getCurrentRoom().getWest() != null) {
                         player1.playerPos = player1.getCurrentRoom().getWest();
                         System.out.println("going west");
-                        if(map.starterRoom.getRoomBehavior() == 1) {
-                            System.out.println(map.starterRoom.getDescription());
-                            map.starterRoom.setRoomBehavior(0);
+                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
+                            System.out.println(player1.getCurrentRoom().getDescription());
+                            player1.getCurrentRoom().setRoomBehavior(0);
                         }
                     } else textObj.invalidRoute();;
                     break;
@@ -69,15 +69,15 @@ public class Adventure {
                     if (player1.getCurrentRoom().getEast() != null) {
                         player1.playerPos = player1.getCurrentRoom().getEast();
                         System.out.println("going east");
-                        if(map.starterRoom.getRoomBehavior() == 1) {
-                            System.out.println(map.starterRoom.getDescription());
-                            map.starterRoom.setRoomBehavior(0);
+                        if(player1.getCurrentRoom().getRoomBehavior()== 1) {
+                            System.out.println(player1.getCurrentRoom().getDescription());
+                            player1.getCurrentRoom().setRoomBehavior(0);
                         }
                     } else textObj.invalidRoute();
                     break;
 
                 case "look","l":
-                    System.out.println(map.starterRoom.getDescription());
+                    System.out.println(player1.getCurrentRoom().getDescription());
                     break;
                 case "help","h":
                    textObj.help();
