@@ -59,20 +59,24 @@ public class Adventure {
     }
         //movement directionpicker
     public void playerMovement(String direction) {
-        if (direction.equals("north") || direction.equals("n")) {
-            print(textObj.movement(direction));
-            moveNorth();
-        } else if (direction.equals("south") || direction.equals("s")) {
-            print(textObj.movement(direction));
-            moveSouth();
-        } else if (direction.equals("west") || direction.equals("w")) {
-            print(textObj.movement(direction));
-            moveWest();
-        } else if (direction.equals("east") || direction.equals("e")) {
-            print(textObj.movement(direction));
-            moveEast();
-        }else {
-            textObj.invalidInput();
+        switch (direction) {
+            case "north", "n" -> {
+                print(textObj.movement(direction));
+                moveNorth();
+            }
+            case "south", "s" -> {
+                print(textObj.movement(direction));
+                moveSouth();
+            }
+            case "west", "w" -> {
+                print(textObj.movement(direction));
+                moveWest();
+            }
+            case "east", "e" -> {
+                print(textObj.movement(direction));
+                moveEast();
+            }
+            default -> textObj.invalidInput();
         }
 
     }
