@@ -9,17 +9,22 @@ public class Adventure {
         obj.mainMenu();
     }
     public void mainMenu() {
-        String filePath ="magic lute.wav";
+        //scanner oprettet
+        Scanner keyboard = new Scanner(System.in);
+        //map opretttet og createt
         Map map = new Map();
         map.createRooms();
+        //music oprettet, spillet og filepath defineret
+        String filePath ="magic lute.wav";
         Music music1 = new Music();
         music1.playMusic(filePath);
+        //player oprettet og player pos sat til room1.
         Player player1 = new Player();
         player1.setNewRoom(map.getStarterRoom());
+        Text textObj = new Text();
+        textObj.intro();
 
-        //intro
-        System.out.printf("You wake up drowzy and confused. The room your standing in is dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
-        Scanner keyboard = new Scanner(System.in);
+
 
         boolean stillRunning = true;
         while (stillRunning) {
@@ -38,7 +43,7 @@ public class Adventure {
                             System.out.println(map.starterRoom.getDescription());
                             map.starterRoom.setRoomBehavior(0);
                         }
-                    } else System.out.println("you cant go that way");
+                    } else textObj.invalidRoute();
                     break;
                 case "south","go south","s":
                     if (player1.getCurrentRoom().getSouth() != null) {
@@ -48,7 +53,7 @@ public class Adventure {
                             System.out.println(map.starterRoom.getDescription());
                             map.starterRoom.setRoomBehavior(0);
                         }
-                    } else System.out.println("you cant go that way");
+                    } else textObj.invalidRoute();
                     break;
                 case "west","go west","w":
                     if (player1.getCurrentRoom().getWest() != null) {
@@ -58,7 +63,7 @@ public class Adventure {
                             System.out.println(map.starterRoom.getDescription());
                             map.starterRoom.setRoomBehavior(0);
                         }
-                    } else System.out.println("you cant go that way");
+                    } else textObj.invalidRoute();;
                     break;
                 case "east","go east","e":
                     if (player1.getCurrentRoom().getEast() != null) {
@@ -68,23 +73,18 @@ public class Adventure {
                             System.out.println(map.starterRoom.getDescription());
                             map.starterRoom.setRoomBehavior(0);
                         }
-                    } else System.out.println("you cant go that way");
+                    } else textObj.invalidRoute();
                     break;
 
                 case "look","l":
                     System.out.println(map.starterRoom.getDescription());
                     break;
                 case "help","h":
-                    System.out.print("this is the help transscript, you can go north, south, east or west." +
-                            " Enter either: " +
-                            "south; east; north; west.");
-                    System.out.println("  to look around type: look");
+                   textObj.help();
                     break;
                 case "exit":
-                    System.out.println("exit game");
-                    //System.out.println(currentRoom.getName());
+                    textObj.exit();
                     stillRunning = false;
-
                     break;
 
             }
