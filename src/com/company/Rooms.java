@@ -8,7 +8,6 @@ public class Rooms {
     private Rooms east;
     private Rooms west;
     private int roomBehavior;
-    private Rooms room;
 
 
     public Rooms (String name,String description){
@@ -34,9 +33,6 @@ public class Rooms {
         this.east=east;
     }
 
-    public void setRoom(Rooms room){
-        this.room = room;
-    }
 
     public Rooms getNorth() {
         return north;

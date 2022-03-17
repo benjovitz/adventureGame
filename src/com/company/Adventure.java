@@ -1,10 +1,4 @@
 package com.company;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.swing.*;
-import java.io.File;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -14,28 +8,19 @@ public class Adventure {
         Adventure obj = new Adventure();
         obj.mainMenu();
     }
-
     public void mainMenu() {
-
-        //String filePath = "Ophira Zakai - Renaissance Lute.wav";
-        String filePath2 = "Torch Burning Sound Effect.wav";
         String filePath ="magic lute.wav";
-        Adventure obj = new Adventure() ;
         Map map = new Map();
         map.createRooms();
-        obj.playMusic(filePath);
+        Music music1 = new Music();
+        music1.playMusic(filePath);
         Player player1 = new Player();
-
-
-
-
-
-
+        player1.setNewRoom(map.getStarterRoom());
 
         //intro
         System.out.printf("You wake up drowzy and confused. The room your standing in is dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner");
-
         Scanner keyboard = new Scanner(System.in);
+
         boolean stillRunning = true;
         while (stillRunning) {
 
@@ -46,8 +31,8 @@ public class Adventure {
             switch (switchCommand) {
                 case "north","go north","n":
 
-                    if (map.starterRoom.getNorth() != null) {
-                        map.starterRoom = map.starterRoom.getNorth();
+                    if (player1.getCurrentRoom().getNorth() != null) {
+                        player1.playerPos = player1.getCurrentRoom().getNorth();
                         System.out.println("going north");
                         if(map.starterRoom.getRoomBehavior() == 1) {
                             System.out.println(map.starterRoom.getDescription());
@@ -56,8 +41,8 @@ public class Adventure {
                     } else System.out.println("you cant go that way");
                     break;
                 case "south","go south","s":
-                    if (map.starterRoom.getSouth() != null) {
-                        map.starterRoom = map.starterRoom.getSouth();
+                    if (player1.getCurrentRoom().getSouth() != null) {
+                        player1.playerPos = player1.getCurrentRoom().getSouth();
                         System.out.println("going south");
                         if(map.starterRoom.getRoomBehavior() == 1) {
                             System.out.println(map.starterRoom.getDescription());
@@ -66,8 +51,8 @@ public class Adventure {
                     } else System.out.println("you cant go that way");
                     break;
                 case "west","go west","w":
-                    if (map.starterRoom.getWest() != null) {
-                        map.starterRoom = map.starterRoom.getWest();
+                    if (player1.getCurrentRoom().getWest() != null) {
+                        player1.playerPos = player1.getCurrentRoom().getWest();
                         System.out.println("going west");
                         if(map.starterRoom.getRoomBehavior() == 1) {
                             System.out.println(map.starterRoom.getDescription());
@@ -76,8 +61,8 @@ public class Adventure {
                     } else System.out.println("you cant go that way");
                     break;
                 case "east","go east","e":
-                    if (map.starterRoom.getEast() != null) {
-                        map.starterRoom = map.starterRoom.getEast();
+                    if (player1.getCurrentRoom().getEast() != null) {
+                        player1.playerPos = player1.getCurrentRoom().getEast();
                         System.out.println("going east");
                         if(map.starterRoom.getRoomBehavior() == 1) {
                             System.out.println(map.starterRoom.getDescription());
@@ -107,27 +92,5 @@ public class Adventure {
         }
 
     }
-
-    //music
-    public void playMusic(String musicLocation){
-        try{
-            File musicPath = new File(musicLocation);
-            if(musicPath.exists()){
-                AudioInputStream audioInput = AudioSystem.getAudioInputStream(musicPath);
-                Clip clip = AudioSystem.getClip();
-                clip.open(audioInput);
-                clip.start();
-                clip.loop(Clip.LOOP_CONTINUOUSLY);
-                //JOptionPane.showMessageDialog(null, "The game is now beginning, press ok to start");
-            }
-            else{
-                System.out.println("cant find file");
-            }
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-
-    }
-
 }
 
