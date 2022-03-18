@@ -8,6 +8,8 @@ public class Rooms {
     private Rooms east;
     private Rooms west;
     private int roomBehavior;
+    Items item;
+
 
 
     public Rooms (String name,String description){
@@ -72,6 +74,10 @@ public class Rooms {
 
     public int getRoomBehavior(){
         return roomBehavior;
+    }
+
+    public void setItem(Items item){
+        this.item
     }
 
 }
