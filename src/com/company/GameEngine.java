@@ -2,33 +2,41 @@ package com.company;
 
 import java.util.Locale;
 import java.util.Scanner;
-
 public class GameEngine {
-    private Player player1;
-    private Text textObj;
-    private Map map;
-    private Music music1;
-    private Scanner keyboard;
+    private final Player player1;
+    private final Text textObj;
+    private final Map map;
+    private final Music music1;
+    private final Scanner keyboard;
+
+    //private final Items coin;
 
 
-    public GameEngine() {
+    public GameEngine(){
         textObj = new Text();
         player1 = new Player();
         map = new Map();
         music1 = new Music();
         keyboard = new Scanner(System.in);
+
+
+
     }
 
     public void mainMenu() {
         map.createRooms();
+        map.crateItems();
+        map.setItems();
+        map.getItemName();
         //music oprettet, spillet og filepath defineret
         String filePath = "magic lute.wav";
         music1.playMusic(filePath);
         //player oprettet og player pos sat til room1.
         player1.setPlayerPos(map.getStarterRoom());
-        map.roomObj.getItemDes();
+        //map.roomObj.getItemDes();
         //map.roomObj..getItemName();
         textObj.intro();
+
 
         boolean stillRunning = true;
         while (stillRunning) {
@@ -109,6 +117,7 @@ public class GameEngine {
     }
 
 }
+
 
 
 

@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Room {
     private String name;
     private String description;
@@ -8,15 +10,15 @@ public class Room {
     private Room east;
     private Room west;
     private int roomBehavior;
-    //Item item;
-    Item item1 = new Item("item1");
-    Item itemInRoom;
+    //private Items item;
+    private ArrayList<Item> roomItems;
 
-
-    public Room(String name, String description){
+    public Room (String name,String description){
         this.name=name;
         this.description=description;
         this.roomBehavior = 1;
+        roomItems = new ArrayList<>();
+
 
     }
 
@@ -77,12 +79,16 @@ public class Room {
         return roomBehavior;
     }
 
-   public void getItemDes(){
 
-        System.out.println(item1.getItemName());
-   }
+    public void addRoomItem(Item item){
 
-   public void setItem(){
-   }
+        roomItems.add(item);
+
+    }
+
+    public void removeRoomItem(Item item){
+        roomItems.remove(item);
+    }
 
 }
+
