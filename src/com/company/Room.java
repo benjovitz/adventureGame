@@ -1,55 +1,55 @@
 package com.company;
 
-public class Rooms {
+public class Room {
     private String name;
     private String description;
-    private Rooms north;
-    private Rooms south;
-    private Rooms east;
-    private Rooms west;
+    private Room north;
+    private Room south;
+    private Room east;
+    private Room west;
     private int roomBehavior;
-    //Items item;
-    Items item1 = new Items("item1");
-    Items itemInRoom;
+    //Item item;
+    Item item1 = new Item("item1");
+    Item itemInRoom;
 
 
-    public Rooms (String name,String description){
+    public Room(String name, String description){
         this.name=name;
         this.description=description;
         this.roomBehavior = 1;
 
     }
 
-    public void setNorth(Rooms north) {
+    public void setNorth(Room north) {
         this.north = north;
     }
 
-    public void setSouth(Rooms south) {
+    public void setSouth(Room south) {
         this.south = south;
     }
 
-    public void setWest(Rooms west) {
+    public void setWest(Room west) {
         this.west = west;
     }
 
-    public void setEast(Rooms east){
+    public void setEast(Room east){
         this.east=east;
     }
 
 
-    public Rooms getNorth() {
+    public Room getNorth() {
         return north;
     }
 
-    public Rooms getSouth() {
+    public Room getSouth() {
         return south;
     }
 
-    public Rooms getEast() {
+    public Room getEast() {
         return east;
     }
 
-    public Rooms getWest() {
+    public Room getWest() {
         return west;
     }
 

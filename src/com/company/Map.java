@@ -2,22 +2,22 @@ package com.company;
 
 public class Map {
 
-    Rooms starterRoom;
-    Rooms roomObj = new Rooms("ja","nej");
+    Room starterRoom;
+    Room roomObj = new Room("ja","nej");
 
     public void createRooms() {
 
-        Rooms room1 = new Rooms("Rum1 ", "Det her er rum 1");
-        Rooms room2 = new Rooms("Rum2 ", "Det her er rum 2");
-        Rooms room3 = new Rooms("Rum3 ", "Det her er rum 3");
-        Rooms room4 = new Rooms("Rum4 ", "Det her er rum 4");
-        Rooms room5 = new Rooms("Rum5 ", "Det her er rum 5");
-        Rooms room6 = new Rooms("Rum6 ", "Det her er rum 6");
-        Rooms room7 = new Rooms("Rum7 ", "Det her er rum 7");
-        Rooms room8 = new Rooms("Rum8 ", "Det her er rum 8");
-        Rooms room9 = new Rooms("Rum9 ", "Det her er rum 9");
-        //Rooms currentRoom;
-        //Rooms currentRoom = room1;
+        Room room1 = new Room("Rum1 ", "Det her er rum 1");
+        Room room2 = new Room("Rum2 ", "Det her er rum 2");
+        Room room3 = new Room("Rum3 ", "Det her er rum 3");
+        Room room4 = new Room("Rum4 ", "Det her er rum 4");
+        Room room5 = new Room("Rum5 ", "Det her er rum 5");
+        Room room6 = new Room("Rum6 ", "Det her er rum 6");
+        Room room7 = new Room("Rum7 ", "Det her er rum 7");
+        Room room8 = new Room("Rum8 ", "Det her er rum 8");
+        Room room9 = new Room("Rum9 ", "Det her er rum 9");
+        //Room currentRoom;
+        //Room currentRoom = room1;
 
 
 
@@ -82,7 +82,7 @@ public class Map {
     }
 
 
-    public Rooms getStarterRoom() {
+    public Room getStarterRoom() {
         return starterRoom;
     }
 }

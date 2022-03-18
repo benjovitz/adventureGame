@@ -1,18 +1,18 @@
 package com.company;
 
-public class Items {
+public class Item {
    private String name;
-   Items item;
+   Item item;
 
-    public Items(String name){
+    public Item(String name){
         this.name = name;
     }
 
-    public void setItem(Items item) {
+    public void setItem(Item item) {
         this.item = item;
     }
 
-    public Items getItem() {
+    public Item getItem() {
         return item;
     }
 
