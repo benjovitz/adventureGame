@@ -4,8 +4,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class Adventure {
-    Player player1 = new Player();
-    Text textObj = new Text();
+    Player player1;
+    Text textObj;
 
     public static void main(String[] args) {
         Adventure obj = new Adventure();
@@ -16,7 +16,7 @@ public class Adventure {
     public void mainMenu() {
         //scanner oprettet
         Scanner keyboard = new Scanner(System.in);
-        //map opretttet og createt
+        //map opretttet og og rooms createt
         Map map = new Map();
         map.createRooms();
         //music oprettet, spillet og filepath defineret
@@ -24,10 +24,12 @@ public class Adventure {
         Music music1 = new Music();
         music1.playMusic(filePath);
         //player oprettet og player pos sat til room1.
+        Player player1 = new Player();
+        Text textObj = new Text();
         player1.setNewRoom(map.getStarterRoom());
 
-        textObj.intro();
 
+        textObj.intro();
 
         boolean stillRunning = true;
         while (stillRunning) {
@@ -54,7 +56,6 @@ public class Adventure {
             }
 
         }
-        textObj.exit();
 
     }
 

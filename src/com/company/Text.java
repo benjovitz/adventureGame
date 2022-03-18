@@ -3,7 +3,7 @@ package com.company;
 public class Text {
 
     public void intro(){
-        System.out.printf("You wake up drowzy and confused. The room your standing in is dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner\n");
+        System.out.printf("You wake up drowzy and confused. The room your standing in is a dimly lit room,\na fireplace is crackling and what appears to a magical lute is playing by itself in the corner\n");
 
     }
 
