@@ -11,7 +11,7 @@ public class GameEngine {
     private Scanner keyboard;
 
 
-    public GameEngine(){
+    public GameEngine() {
         textObj = new Text();
         player1 = new Player();
         map = new Map();
@@ -38,6 +38,7 @@ public class GameEngine {
             if (command.startsWith("go ")) {
                 String direction = command.substring(command.indexOf(" ") + 1);
                 playerMovement(direction);
+                hasMoved(direction);
 
             } else {
                 //switch for help commands
@@ -80,6 +81,31 @@ public class GameEngine {
             default -> textObj.invalidInput();
         }
 
+    }
+
+    public void hasMoved(String direction) {
+        switch (direction) {
+            case "north","n" -> {
+                if (player1.getCurrentRoom().getNorth() == null) {
+                    textObj.invalidRoute();
+                }
+            }
+            case "south","s"->{
+                if (player1.getCurrentRoom().getSouth()==null){
+                    textObj.invalidRoute();
+                }
+            }
+            case "west","w"->{
+                if (player1.getCurrentRoom().getWest()==null){
+                    textObj.invalidRoute();
+                }
+            }
+            case "east","e" ->{
+                if (player1.getCurrentRoom().getEast()==null){
+                    textObj.invalidRoute();
+                }
+            }
+        }
     }
 
 }
