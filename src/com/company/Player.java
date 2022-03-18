@@ -2,16 +2,22 @@ package com.company;
 
 public class Player {
 
-    Rooms playerPos;
+    private Rooms playerPos;
 
 
 
 
-    public void setNewRoom(Rooms playerPos){
+    public void setPlayerPos(Rooms playerPos){
         this.playerPos = playerPos;
     }
 
     public Rooms getCurrentRoom() {
         return playerPos;
     }
+
+
+
+
+
+
 }

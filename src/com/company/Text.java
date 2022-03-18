@@ -25,9 +25,9 @@ public class Text {
     public void invalidInput(){
         System.out.println("Invalid input");
     }
-    public String movement (String direction){
+    public void movement (String direction){
 
-        return "Going " + direction;
+        System.out.println("Going " + direction);
     }
 
 }

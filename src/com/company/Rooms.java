@@ -8,8 +8,9 @@ public class Rooms {
     private Rooms east;
     private Rooms west;
     private int roomBehavior;
-    Items item;
-
+    //Items item;
+    Items item1 = new Items("item1");
+    Items itemInRoom;
 
 
     public Rooms (String name,String description){
@@ -76,8 +77,12 @@ public class Rooms {
         return roomBehavior;
     }
 
-    public void setItem(Items item){
-        this.item
-    }
+   public void getItemDes(){
+
+        System.out.println(item1.getItemName());
+   }
+
+   public void setItem(){
+   }
 
 }

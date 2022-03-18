@@ -4,25 +4,35 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class GameEngine {
-    Player player1;
-    Text textObj;
+    private Player player1;
+    private Text textObj;
+    private Map map;
+    private Music music1;
+    private Scanner keyboard;
+
+
+    public GameEngine(){
+        textObj = new Text();
+        player1 = new Player();
+        map = new Map();
+        music1 = new Music();
+        keyboard = new Scanner(System.in);
+
+
+    }
 
     public void mainMenu() {
-        //scanner oprettet
-        Scanner keyboard = new Scanner(System.in);
-        //map opretttet og og rooms createt
-        Map map = new Map();
+
         map.createRooms();
         //music oprettet, spillet og filepath defineret
         String filePath = "magic lute.wav";
-        Music music1 = new Music();
         music1.playMusic(filePath);
+
         //player oprettet og player pos sat til room1.
-        Player player1 = new Player();
-        Text textObj = new Text();
-        player1.setNewRoom(map.getStarterRoom());
 
-
+        player1.setPlayerPos(map.getStarterRoom());
+        map.roomObj.getItemDes();
+        //map.roomObj..getItemName();
         textObj.intro();
 
         boolean stillRunning = true;
@@ -57,19 +67,19 @@ public class GameEngine {
     public void playerMovement(String direction) {
         switch (direction) {
             case "north", "n" -> {
-                print(textObj.movement(direction));
+                textObj.movement(direction);
                 moveNorth();
             }
             case "south", "s" -> {
-                print(textObj.movement(direction));
+                textObj.movement(direction);
                 moveSouth();
             }
             case "west", "w" -> {
-                print(textObj.movement(direction));
+                textObj.movement(direction);
                 moveWest();
             }
             case "east", "e" -> {
-                print(textObj.movement(direction));
+                textObj.movement(direction);
                 moveEast();
             }
             default -> textObj.invalidInput();
@@ -80,7 +90,7 @@ public class GameEngine {
     //movement mechanic
     public void moveNorth() {
         if (player1.getCurrentRoom().getNorth() != null) {
-            player1.playerPos = player1.getCurrentRoom().getNorth();
+            player1.setPlayerPos(player1.getCurrentRoom().getNorth());
             roomBehavior();
         } else {
             textObj.invalidRoute();
@@ -90,7 +100,7 @@ public class GameEngine {
     //same
     public void moveSouth() {
         if (player1.getCurrentRoom().getSouth() != null) {
-            player1.playerPos = player1.getCurrentRoom().getSouth();
+            player1.setPlayerPos(player1.getCurrentRoom().getSouth());
             roomBehavior();
         } else {
             textObj.invalidRoute();
@@ -100,7 +110,7 @@ public class GameEngine {
     //same
     public void moveWest() {
         if (player1.getCurrentRoom().getWest() != null) {
-            player1.playerPos = player1.getCurrentRoom().getWest();
+            player1.setPlayerPos(player1.getCurrentRoom().getWest());
             roomBehavior();
         } else {
             textObj.invalidRoute();
@@ -111,7 +121,7 @@ public class GameEngine {
     //same
     public void moveEast() {
         if (player1.getCurrentRoom().getEast() != null) {
-            player1.playerPos = player1.getCurrentRoom().getEast();
+            player1.setPlayerPos(player1.getCurrentRoom().getEast());
             roomBehavior();
         } else {
             textObj.invalidRoute();
@@ -126,9 +136,6 @@ public class GameEngine {
         }
     }
 
-    public void print(String print) {
-        System.out.println(print);
-    }
 
 }
 

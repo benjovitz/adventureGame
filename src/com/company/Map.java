@@ -3,6 +3,7 @@ package com.company;
 public class Map {
 
     Rooms starterRoom;
+    Rooms roomObj = new Rooms("ja","nej");
 
     public void createRooms() {
 
@@ -79,6 +80,7 @@ public class Map {
 
         starterRoom = room1;
     }
+
 
     public Rooms getStarterRoom() {
         return starterRoom;
