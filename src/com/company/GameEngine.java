@@ -17,19 +17,14 @@ public class GameEngine {
         map = new Map();
         music1 = new Music();
         keyboard = new Scanner(System.in);
-
-
     }
 
     public void mainMenu() {
-
         map.createRooms();
         //music oprettet, spillet og filepath defineret
         String filePath = "magic lute.wav";
         music1.playMusic(filePath);
-
         //player oprettet og player pos sat til room1.
-
         player1.setPlayerPos(map.getStarterRoom());
         map.roomObj.getItemDes();
         //map.roomObj..getItemName();
@@ -68,74 +63,24 @@ public class GameEngine {
         switch (direction) {
             case "north", "n" -> {
                 textObj.movement(direction);
-                moveNorth();
+                player1.moveNorth();
             }
             case "south", "s" -> {
                 textObj.movement(direction);
-                moveSouth();
+                player1.moveSouth();
             }
             case "west", "w" -> {
                 textObj.movement(direction);
-                moveWest();
+                player1.moveWest();
             }
             case "east", "e" -> {
                 textObj.movement(direction);
-                moveEast();
+                player1.moveEast();
             }
             default -> textObj.invalidInput();
         }
 
     }
-
-    //movement mechanic
-    public void moveNorth() {
-        if (player1.getCurrentRoom().getNorth() != null) {
-            player1.setPlayerPos(player1.getCurrentRoom().getNorth());
-            roomBehavior();
-        } else {
-            textObj.invalidRoute();
-        }
-    }
-
-    //same
-    public void moveSouth() {
-        if (player1.getCurrentRoom().getSouth() != null) {
-            player1.setPlayerPos(player1.getCurrentRoom().getSouth());
-            roomBehavior();
-        } else {
-            textObj.invalidRoute();
-        }
-    }
-
-    //same
-    public void moveWest() {
-        if (player1.getCurrentRoom().getWest() != null) {
-            player1.setPlayerPos(player1.getCurrentRoom().getWest());
-            roomBehavior();
-        } else {
-            textObj.invalidRoute();
-        }
-
-    }
-
-    //same
-    public void moveEast() {
-        if (player1.getCurrentRoom().getEast() != null) {
-            player1.setPlayerPos(player1.getCurrentRoom().getEast());
-            roomBehavior();
-        } else {
-            textObj.invalidRoute();
-        }
-    }
-
-    //checking if you have been in the room beforehand
-    public void roomBehavior() {
-        if (player1.getCurrentRoom().getRoomBehavior() == 1) {
-            System.out.println(player1.getCurrentRoom().getDescription());
-            player1.getCurrentRoom().setRoomBehavior(0);
-        }
-    }
-
 
 }
 
