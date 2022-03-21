@@ -63,8 +63,9 @@ public class Player {
        Item roomItem = playerPos.deleteItem(itemName);
        backpack.add(roomItem);
     }
-public void showBackpack(){
+    public void showBackpack(){
     System.out.println(backpack);
 }
+
 
 }

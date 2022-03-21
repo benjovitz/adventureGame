@@ -38,19 +38,21 @@ public class GameEngine {
         boolean stillRunning = true;
         while (stillRunning) {
 
-            String command = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
-            //movement command
-            if (command.startsWith("go ")) {
-                String direction = command.substring(command.indexOf(" ") + 1);
-                playerMovement(direction);
-                hasMoved(direction);
+            String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
+            String[] command = s.split(" ");
 
-            } else if (command.startsWith("take ")||command.startsWith("t ")){
-                String item = command.substring(command.indexOf(" ")+1);
-                player1.takeItem(item);
-            } else {
+            //movement command
                 //switch for help commands
-                switch (command) {
+                switch (command[0]) {
+                    case "go", "g" -> {
+                        textObj.movement(command[1]);
+                        invalidRouteChecker(command[1]);
+                        playerMovement(command[1]);
+
+                    }
+                    case "take","t" -> {
+                        player1.takeItem(command[1]);
+                    }
                     case "look", "l" -> {System.out.println(player1.getCurrentRoom().getDescription());
                         System.out.println(player1.getCurrentRoom().getRoomItems());
                     }
@@ -68,25 +70,20 @@ public class GameEngine {
 
         }
 
-    }
 
     //movement directionpicker
     public void playerMovement(String direction) {
         switch (direction) {
             case "north", "n" -> {
-                textObj.movement(direction);
                 player1.moveNorth();
             }
             case "south", "s" -> {
-                textObj.movement(direction);
                 player1.moveSouth();
             }
             case "west", "w" -> {
-                textObj.movement(direction);
                 player1.moveWest();
             }
             case "east", "e" -> {
-                textObj.movement(direction);
                 player1.moveEast();
             }
             default -> textObj.invalidInput();
@@ -94,7 +91,7 @@ public class GameEngine {
 
     }
 
-    public void hasMoved(String direction) {
+    public void invalidRouteChecker(String direction) {
         switch (direction) {
             case "north", "n" -> {
                 if (player1.getCurrentRoom().getNorth() == null) {
