@@ -90,5 +90,19 @@ public class Room {
         roomItems.remove(item);
     }
 
+    public Item deleteItem(String itemName) {
+        for (int i = 0; i < roomItems.size(); i++) {
+            Item tmp = roomItems.get(i);
+           if (tmp.getItemName().equals(itemName)){
+               roomItems.remove(tmp);
+                return tmp;
+            }
+        }
+
+        return null;
+    }
+    public ArrayList<Item> getRoomItems(){
+        return roomItems;
+    }
 }
 

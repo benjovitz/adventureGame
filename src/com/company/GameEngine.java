@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Locale;
 import java.util.Scanner;
+
 public class GameEngine {
     private final Player player1;
     private final Text textObj;
@@ -12,22 +13,18 @@ public class GameEngine {
     //private final Items coin;
 
 
-    public GameEngine(){
+    public GameEngine() {
         textObj = new Text();
         player1 = new Player();
         map = new Map();
         music1 = new Music();
         keyboard = new Scanner(System.in);
-
+        map.createWorld();
 
 
     }
 
     public void mainMenu() {
-        map.createRooms();
-        map.crateItems();
-        map.setItems();
-        map.getItemName();
         //music oprettet, spillet og filepath defineret
         String filePath = "magic lute.wav";
         music1.playMusic(filePath);
@@ -48,11 +45,17 @@ public class GameEngine {
                 playerMovement(direction);
                 hasMoved(direction);
 
+            } else if (command.startsWith("take ")||command.startsWith("t ")){
+                String item = command.substring(command.indexOf(" ")+1);
+                player1.takeItem(item);
             } else {
                 //switch for help commands
                 switch (command) {
-                    case "look", "l" -> System.out.println(player1.getCurrentRoom().getDescription());
+                    case "look", "l" -> {System.out.println(player1.getCurrentRoom().getDescription());
+                        System.out.println(player1.getCurrentRoom().getRoomItems());
+                    }
                     case "help", "h" -> textObj.help();
+                    case "backpack", "b" -> player1.showBackpack();
                     case "exit" -> {
                         stillRunning = false;
                         textObj.exit();
@@ -93,23 +96,23 @@ public class GameEngine {
 
     public void hasMoved(String direction) {
         switch (direction) {
-            case "north","n" -> {
+            case "north", "n" -> {
                 if (player1.getCurrentRoom().getNorth() == null) {
                     textObj.invalidRoute();
                 }
             }
-            case "south","s"->{
-                if (player1.getCurrentRoom().getSouth()==null){
+            case "south", "s" -> {
+                if (player1.getCurrentRoom().getSouth() == null) {
                     textObj.invalidRoute();
                 }
             }
-            case "west","w"->{
-                if (player1.getCurrentRoom().getWest()==null){
+            case "west", "w" -> {
+                if (player1.getCurrentRoom().getWest() == null) {
                     textObj.invalidRoute();
                 }
             }
-            case "east","e" ->{
-                if (player1.getCurrentRoom().getEast()==null){
+            case "east", "e" -> {
+                if (player1.getCurrentRoom().getEast() == null) {
                     textObj.invalidRoute();
                 }
             }
