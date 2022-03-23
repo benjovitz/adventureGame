@@ -6,6 +6,7 @@ public class Player {
 
     private Room playerPos;
     private ArrayList<Item> backpack;
+    private int health =10;
 
     public Player (){
         backpack= new ArrayList<>();
@@ -15,7 +16,13 @@ public class Player {
         this.playerPos = playerPos;
     }
 
+    public int getHealth() {
+        return health;
+    }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
 
     public Room getCurrentRoom() {
         return playerPos;

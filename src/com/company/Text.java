@@ -32,5 +32,11 @@ public class Text {
     public void invalidItem(String itemName){
         System.out.println("Cant find "+ itemName);
     }
-
+    public void seeHealth(int health){
+        System.out.println("you have "+ health + " HP left");
+        String heart = "\u2764";
+        for (int i = 0; i < health; i++) {
+            System.out.print(heart+ " ");
+        }
+    }
 }

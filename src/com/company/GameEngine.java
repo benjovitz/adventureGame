@@ -59,6 +59,7 @@ public class GameEngine {
                     //test
                     dropItem(command[1]);
                 }
+                case "health","hp" -> textObj.seeHealth(player1.getHealth());
                 //case "use","u" -> player1.useItem
                 case "exit" -> {
                     stillRunning = false;
