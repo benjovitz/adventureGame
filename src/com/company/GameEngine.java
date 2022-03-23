@@ -20,55 +20,58 @@ public class GameEngine {
         music1 = new Music();
         keyboard = new Scanner(System.in);
         map.createWorld();
+        //music
+        String filePath = "magic lute.wav";
+        music1.playMusic(filePath);
+        //player placed in room 1
+        player1.setPlayerPos(map.getStarterRoom());
+        //intro text
+        textObj.intro();
+        //
+
 
 
     }
 
     public void mainMenu() {
-        //music oprettet, spillet og filepath defineret
-        String filePath = "magic lute.wav";
-        music1.playMusic(filePath);
-        //player oprettet og player pos sat til room1.
-        player1.setPlayerPos(map.getStarterRoom());
-        //map.roomObj.getItemDes();
-        //map.roomObj..getItemName();
-        textObj.intro();
-
-
         boolean stillRunning = true;
         while (stillRunning) {
 
             String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
+            //splitting commands up
             String[] command = s.split(" ");
-
-            //movement command
-                //switch for help commands
-                switch (command[0]) {
-                    case "go", "g" -> {
-                        textObj.movement(command[1]);
-                        invalidRouteChecker(command[1]);
-                        playerMovement(command[1]);
-
-                    }
-                    case "take","t" -> {
-                        player1.takeItem(command[1]);
-                    }
-                    case "look", "l" -> {System.out.println(player1.getCurrentRoom().getDescription());
-                        System.out.println(player1.getCurrentRoom().getRoomItems());
-                    }
-                    case "help", "h" -> textObj.help();
-                    case "backpack", "b" -> player1.showBackpack();
-                    case "exit" -> {
-                        stillRunning = false;
-                        textObj.exit();
-                    }
-
-                    default -> textObj.invalidInput();
-
+            //switch for commands
+            switch (command[0]) {
+                case "go", "g" -> {
+                    textObj.movement(command[1]);
+                    invalidRouteChecker(command[1]);
+                    playerMovement(command[1]);
                 }
-            }
+                case "take", "t" -> {
+                    player1.takeItem(command[1]);
+                }
+                case "look", "l" -> {
+                    System.out.println(player1.getCurrentRoom().getDescription());
+                    System.out.println(player1.getCurrentRoom().getRoomItems());
+                }
+                case "help", "h" -> textObj.help();
+                case "backpack", "b" -> player1.showBackpack();
+                case "drop","d" ->{
+                    //test
+                    dropItem(command[1]);
+                }
+                //case "use","u" -> player1.useItem
+                case "exit" -> {
+                    stillRunning = false;
+                    textObj.exit();
+                }
 
+                default -> textObj.invalidInput();
+
+            }
         }
+
+    }
 
 
     //movement directionpicker
@@ -114,6 +117,11 @@ public class GameEngine {
                 }
             }
         }
+    }
+
+    public void dropItem(String itemName){
+        player1.getCurrentRoom().setCurrentPlayer(player1);
+        player1.getCurrentRoom().dropItem(itemName);
     }
 
 }

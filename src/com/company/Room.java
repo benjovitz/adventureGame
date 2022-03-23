@@ -10,16 +10,23 @@ public class Room {
     private Room east;
     private Room west;
     private int roomBehavior;
-    //private Items item;
     private ArrayList<Item> roomItems;
 
-    public Room (String name,String description){
-        this.name=name;
-        this.description=description;
+    private Player currentPlayer;
+
+    public Room(String name, String description) {
+        this.name = name;
+        this.description = description;
         this.roomBehavior = 1;
         roomItems = new ArrayList<>();
 
 
+
+    }
+
+    //test
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
     }
 
     public void setNorth(Room north) {
@@ -34,8 +41,8 @@ public class Room {
         this.west = west;
     }
 
-    public void setEast(Room east){
-        this.east=east;
+    public void setEast(Room east) {
+        this.east = east;
     }
 
 
@@ -71,38 +78,42 @@ public class Room {
         this.name = name;
     }
 
-    public void setRoomBehavior(int roomBehavior){
+    public void setRoomBehavior(int roomBehavior) {
         this.roomBehavior = roomBehavior;
     }
 
-    public int getRoomBehavior(){
+    public int getRoomBehavior() {
         return roomBehavior;
     }
 
 
-    public void addRoomItem(Item item){
+    public void addRoomItem(Item item) {
 
         roomItems.add(item);
 
     }
 
-    public void removeRoomItem(Item item){
-        roomItems.remove(item);
-    }
 
     public Item deleteItem(String itemName) {
         for (int i = 0; i < roomItems.size(); i++) {
             Item tmp = roomItems.get(i);
-           if (tmp.getItemName().equals(itemName)){
-               roomItems.remove(tmp);
+            if (tmp.getItemName().equals(itemName)) {
+                roomItems.remove(tmp);
                 return tmp;
             }
         }
 
         return null;
     }
-    public ArrayList<Item> getRoomItems(){
+
+    public ArrayList<Item> getRoomItems() {
         return roomItems;
+    }
+
+    //test
+    public void dropItem (String itemName){
+        Item playerItem = currentPlayer.findItemInBackpack(itemName);
+        roomItems.add(playerItem);
     }
 }
 

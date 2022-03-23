@@ -16,6 +16,7 @@ public class Player {
     }
 
 
+
     public Room getCurrentRoom() {
         return playerPos;
     }
@@ -66,6 +67,17 @@ public class Player {
     public void showBackpack(){
     System.out.println(backpack);
 }
+//test
+    public Item findItemInBackpack(String itemName) {
+        for (int i = 0; i <backpack.size() ; i++) {
+            Item tmp = backpack.get(i);
+            if (tmp.getItemName().equals(itemName)) {
+                backpack.remove(tmp);
+                return tmp;
+            }
+        }
 
+        return null;
+    }
 
 }
