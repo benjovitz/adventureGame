@@ -30,7 +30,6 @@ public class GameEngine {
         //
 
 
-
     }
 
     public void mainMenu() {
@@ -48,7 +47,7 @@ public class GameEngine {
                     playerMovement(command[1]);
                 }
                 case "take", "t" -> {
-                    player1.takeItem(command[1]);
+                    takeItem(command[1]);
                 }
                 case "look", "l" -> {
                     System.out.println(player1.getCurrentRoom().getDescription());
@@ -56,7 +55,7 @@ public class GameEngine {
                 }
                 case "help", "h" -> textObj.help();
                 case "backpack", "b" -> player1.showBackpack();
-                case "drop","d" ->{
+                case "drop", "d" -> {
                     //test
                     dropItem(command[1]);
                 }
@@ -119,12 +118,25 @@ public class GameEngine {
         }
     }
 
-    public void dropItem(String itemName){
-        player1.getCurrentRoom().setCurrentPlayer(player1);
-        player1.getCurrentRoom().dropItem(itemName);
+    public void dropItem(String itemName) {
+        if (player1.findItemInBackpack(itemName) != null) {
+            player1.getCurrentRoom().setCurrentPlayer(player1);
+            player1.getCurrentRoom().dropItem(itemName);
+        } else {
+            textObj.invalidItem(itemName);
+        }
+
     }
 
+    public void takeItem(String itemName) {
+        if (player1.getCurrentRoom().deleteItem(itemName) != null) {
+            player1.takeItem(itemName);
+        } else {
+            textObj.invalidItem(itemName);
+        }
+    }
 }
+
 
 
 

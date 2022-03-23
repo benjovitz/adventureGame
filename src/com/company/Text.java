@@ -29,5 +29,8 @@ public class Text {
 
         System.out.println("Going " + direction);
     }
+    public void invalidItem(String itemName){
+        System.out.println("Cant find "+ itemName);
+    }
 
 }
