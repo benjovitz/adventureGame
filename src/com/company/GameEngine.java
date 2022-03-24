@@ -77,6 +77,7 @@ public class GameEngine {
     //movement directionpicker
     public void playerMovement(String direction) {
         switch (direction) {
+
             case "north", "n" -> {
                 player1.moveNorth();
             }
@@ -120,14 +121,22 @@ public class GameEngine {
     }
 
     public void dropItem(String itemName) {
+        if (player1.findItemInBackpack(itemName)!=null) {
             player1.getCurrentRoom().setCurrentPlayer(player1);
             player1.getCurrentRoom().dropItem(itemName);
+        }else{
+            textObj.invalidItem(itemName);
+        }
 
 
     }
 
     public void takeItem(String itemName) {
+        if(player1.getCurrentRoom().findItemInRoom(itemName)!=null) {
             player1.takeItem(itemName);
+        }else{
+            textObj.invalidItem(itemName);
+        }
 
     }
 }

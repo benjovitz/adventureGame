@@ -68,7 +68,8 @@ public class Player {
         }
     }
     public void takeItem (String itemName){
-       Item roomItem = playerPos.deleteItem(itemName);
+       Item roomItem = playerPos.findItemInRoom(itemName);
+       playerPos.deleteItem(roomItem);
        backpack.add(roomItem);
     }
     public void showBackpack(){
@@ -79,12 +80,15 @@ public class Player {
         for (int i = 0; i <backpack.size() ; i++) {
             Item tmp = backpack.get(i);
             if (tmp.getItemName().equals(itemName)) {
-                backpack.remove(tmp);
                 return tmp;
             }
         }
 
         return null;
+    }
+
+    public void deleteItem(Item item){
+        backpack.remove(item);
     }
 
 }

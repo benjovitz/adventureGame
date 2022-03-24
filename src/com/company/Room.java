@@ -94,16 +94,19 @@ public class Room {
     }
 
 
-    public Item deleteItem(String itemName) {
+    public Item findItemInRoom(String itemName) {
         for (int i = 0; i < roomItems.size(); i++) {
             Item tmp = roomItems.get(i);
             if (tmp.getItemName().equals(itemName)) {
-                roomItems.remove(tmp);
                 return tmp;
             }
         }
 
         return null;
+    }
+
+    public void deleteItem(Item item){
+        roomItems.remove(item);
     }
 
     public ArrayList<Item> getRoomItems() {
@@ -113,6 +116,7 @@ public class Room {
     //test
     public void dropItem (String itemName){
         Item playerItem = currentPlayer.findItemInBackpack(itemName);
+        currentPlayer.deleteItem(playerItem);
         roomItems.add(playerItem);
     }
 }
