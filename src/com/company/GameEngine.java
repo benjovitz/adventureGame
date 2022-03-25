@@ -122,8 +122,9 @@ public class GameEngine {
 
     public void dropItem(String itemName) {
         if (player1.findItemInBackpack(itemName)!=null) {
-            player1.getCurrentRoom().setCurrentPlayer(player1);
-            player1.getCurrentRoom().dropItem(itemName);
+            Item playerItem = player1.findItemInBackpack(itemName);
+            player1.deleteItem(playerItem);
+            player1.getCurrentRoom().dropItem(playerItem);
         }else{
             textObj.invalidItem(itemName);
         }

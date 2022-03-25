@@ -12,7 +12,6 @@ public class Room {
     private int roomBehavior;
     private ArrayList<Item> roomItems;
 
-    private Player currentPlayer;
 
     public Room(String name, String description) {
         this.name = name;
@@ -24,10 +23,6 @@ public class Room {
 
     }
 
-    //test
-    public void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
-    }
 
     public void setNorth(Room north) {
         this.north = north;
@@ -114,9 +109,7 @@ public class Room {
     }
 
     //test
-    public void dropItem (String itemName){
-        Item playerItem = currentPlayer.findItemInBackpack(itemName);
-        currentPlayer.deleteItem(playerItem);
+    public void dropItem (Item playerItem){
         roomItems.add(playerItem);
     }
 }
