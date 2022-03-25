@@ -3,7 +3,17 @@ package com.company;
 public class Map {
 
     private Room starterRoom;
-
+    private Item coin;
+    private Item torch;
+    private Room room1;
+    private Room room2;
+    private Room room3;
+    private Room room4;
+    private Room room5;
+    private Room room6;
+    private Room room7;
+    private Room room8;
+    private Room room9;
 
     public void createWorld() {
 
