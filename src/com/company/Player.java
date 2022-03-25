@@ -68,10 +68,13 @@ public class Player {
         }
     }
     public void takeItem (String itemName){
-
        Item roomItem = playerPos.findItemInRoom(itemName);
-       playerPos.deleteItem(roomItem);
-       backpack.add(roomItem);
+       if(roomItem!=null) {
+           playerPos.deleteItem(roomItem);
+           backpack.add(roomItem);
+       }else {
+           System.out.println("cant find "+itemName);
+       }
     }
     public void showBackpack(){
     System.out.println(backpack);
@@ -97,6 +100,8 @@ public class Player {
             Item playerItem = findItemInBackpack(itemName);
             deleteItem(playerItem);
             getCurrentRoom().dropItem(playerItem);
+        }else {
+            System.out.println("cant find "+itemName);
         }
 
     }

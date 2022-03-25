@@ -117,6 +117,7 @@ public class GameEngine {
                     textObj.invalidRoute();
                 }
             }
+            default -> textObj.invalidInput();
         }
     }
 
