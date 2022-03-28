@@ -137,8 +137,12 @@ public class Player {
     public void setWeaponBehavior(Item weapon){
         weapon.setEquipped();
         System.out.println(weapon +" is now equipped");
+        equippedStatus(weapon);
     }
 
+    public void equippedStatus(Item weapon){
+        System.out.println(weapon.getEquippedStatus());
+    }
 
 }
 

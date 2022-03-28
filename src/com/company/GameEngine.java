@@ -63,7 +63,7 @@ public class GameEngine {
             case "help", "h" -> textObj.help();
             case "backpack", "b" -> player1.showBackpack();
             case "health", "hp" -> textObj.seeHealth(player1.getHealth());
-            //case "equipped?" ->
+
             case "exit"->{
                 textObj.exit();
                 System.exit(0);
@@ -85,6 +85,7 @@ public class GameEngine {
             case "eat" -> player1.eatFood(command[1]);
             case "drop", "d" -> player1.dropItem(command[1]);
             case "equip" -> player1.equipWeapon(command[1]);
+            //case "equipped?" -> player1.equippedStatus();
             default -> textObj.invalidInput();
         }
 
