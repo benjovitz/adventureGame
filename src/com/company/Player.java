@@ -118,10 +118,16 @@ public class Player {
     }
 
     public void checkFood(String food){
-        if(food.equals( "cheese")){
-            System.out.println("yes");
+        if(food.equals("cheese")){
+            //System.out.println("yes");
             setHealth(getHealth()+5);
+            System.out.println("you gained 5 health");
         }
+        if(food.equals("mushroom")){
+            setHealth(getHealth()-5);
+            System.out.println("you lost 5 health");
+        }
+
 
     }
 

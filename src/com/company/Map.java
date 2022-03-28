@@ -59,10 +59,12 @@ public class Map {
         Item item1 = new Item("coin");
         Item item2 = new Item("torch");
         Food food1 = new Food("cheese");
+        Food food2 = new Food("mushroom");
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);
         room1.addRoomItem(food1);
+        room2.addRoomItem(food2);
     }
 
 
