@@ -173,12 +173,10 @@ public class Player {
         }
     }
     public void ammoChecker(){
-        String s = currentWeapon.getItemName();
-        if(findItemInBackpack(s)instanceof RangedWeapon){
-            Item playerItem = findItemInBackpack(s);
-            System.out.println(playerItem.getAmmo());
-            playerItem.setAmmo(playerItem.getAmmo()-1);
-            System.out.println(playerItem.getAmmo());
+        if(findItemInBackpack(currentWeapon.getItemName())instanceof RangedWeapon){
+            System.out.println(currentWeapon.getAmmo());
+            currentWeapon.setAmmo(currentWeapon.getAmmo()-1);
+            System.out.println(currentWeapon.getAmmo());
         }
     }
 }

@@ -7,7 +7,4 @@ public class RangedWeapon extends Weapon{
         super(name, damage, equipped,ammo);
     }
 
-    public int getAmmo() {
-        return ammo;
-    }
 }
