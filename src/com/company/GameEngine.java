@@ -28,21 +28,16 @@ public class GameEngine {
         player1.setPlayerPos(map.getStarterRoom());
         //intro text
         textObj.intro();
-        //
-
-
     }
 
     public void mainMenu() {
         boolean stillRunning = true;
         while (stillRunning) {
-
             String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
             //splitting commands up
             String[] command = s.split(" ");
             menuPicker(command);
         }
-
     }
 
     public void menuPicker(String[] command) {

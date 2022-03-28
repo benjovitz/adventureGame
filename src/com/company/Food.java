@@ -2,8 +2,8 @@ package com.company;
 
 public class Food extends Item{
 
-    public Food(String name,int healthgain, int equipped) {
-        super(name,healthgain,equipped);
+    public Food(String name,int healthgain, int equipped,int ammo) {
+        super(name,healthgain,equipped,ammo);
     }
 
 }

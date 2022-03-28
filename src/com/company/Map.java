@@ -45,23 +45,23 @@ public class Map {
 
         starterRoom = room1;
         //items bliver oprettet
-        Item item1 = new Item("coin",0,0);
-        Item item2 = new Item("torch",0,0);
+        Item item1 = new Item("coin",0,0,0);
+        Item item2 = new Item("torch",0,0,0);
 
         //food bliver oprettet
-        Food food1 = new Food("cheese",3,0);
-        Food food2 = new Food("mushroom",-3,0);
+        Food food1 = new Food("cheese",3,0,0);
+        Food food2 = new Food("mushroom",-3,0,0);
 
         //weapons bliver oprettet
-        MeleeWeapon meleeWeapon1 = new MeleeWeapon("axe",3,0);
-        RangedWeapon rangedWeapon1 = new RangedWeapon("bow",2,0);
+        MeleeWeapon meleeWeapon1 = new MeleeWeapon("axe",3,0,0);
+        RangedWeapon rangedWeapon1 = new RangedWeapon("bow",2,0,10);
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);
         room1.addRoomItem(food1);
         room2.addRoomItem(food2);
         room1.addRoomItem(meleeWeapon1);
-        room4.addRoomItem(rangedWeapon1);
+        room1.addRoomItem(rangedWeapon1);
     }
 
 

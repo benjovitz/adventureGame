@@ -4,11 +4,13 @@ public class Item {
    private String name;
    private int itemBehavior;
    private int equipped;
+   private int ammo;
 
-    public Item(String name, int itemBehavior, int equipped){
+    public Item(String name, int itemBehavior, int equipped,int ammo){
         this.name = name;
         this.itemBehavior=itemBehavior;
         this.equipped = equipped;
+        this.ammo=ammo;
 
     }
     public String getItemName() {
@@ -35,4 +37,11 @@ public class Item {
         return equipped;
     }
 
+    public int getAmmo() {
+        return ammo;
+    }
+
+    public void setAmmo(int ammo) {
+        this.ammo = ammo;
+    }
 }

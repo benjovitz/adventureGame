@@ -93,7 +93,6 @@ public class Player {
                 return tmp;
             }
         }
-
         return null;
     }
 
@@ -132,7 +131,6 @@ public class Player {
             Item playerItem = findItemInBackpack(weapon);
             setWeaponBehavior(playerItem);
             currentWeapon = playerItem;
-
         } else {
             System.out.println("cant find " + weapon);
         }
@@ -169,12 +167,20 @@ public class Player {
         if (currentWeapon != null) {
             currentWeapon.getItemBehavior();
             System.out.println("whoosh");
+            ammoChecker();
         } else {
             System.out.println("You have no weapon equipped");
         }
-
     }
-
+    public void ammoChecker(){
+        String s = currentWeapon.getItemName();
+        if(findItemInBackpack(s)instanceof RangedWeapon){
+            Item playerItem = findItemInBackpack(s);
+            System.out.println(playerItem.getAmmo());
+            playerItem.setAmmo(playerItem.getAmmo()-1);
+            System.out.println(playerItem.getAmmo());
+        }
+    }
 }
 
 
