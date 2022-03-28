@@ -123,6 +123,23 @@ public class Player {
     public void checkFood(Item food){
         setHealth(getHealth()+food.getItemBehavior());
     }
+
+    public void equipWeapon(String weapon){
+        if (findItemInBackpack(weapon) instanceof Weapon) {
+            Item playerItem = findItemInBackpack(weapon);
+            setWeaponBehavior(playerItem);
+
+        }else {
+            System.out.println("cant find "+weapon);
+        }
+    }
+
+    public void setWeaponBehavior(Item weapon){
+        weapon.setEquipped();
+        System.out.println(weapon +" is now equipped");
+    }
+
+
 }
 
 
