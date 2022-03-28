@@ -46,7 +46,7 @@ public class GameEngine {
     }
 
     public void menuPicker(String[] command) {
-        if(command.length==1){
+        if (command.length == 1) {
             oneWordSwitch(command);
         } else {
             twoWordSwitch(command);
@@ -55,7 +55,7 @@ public class GameEngine {
     }
 
     public void oneWordSwitch(String[] command) {
-        switch (command[0]){
+        switch (command[0]) {
             case "look", "l" -> {
                 System.out.println(player1.getCurrentRoom().getDescription());
                 System.out.println(player1.getCurrentRoom().getRoomItems());
@@ -63,13 +63,12 @@ public class GameEngine {
             case "help", "h" -> textObj.help();
             case "backpack", "b" -> player1.showBackpack();
             case "health", "hp" -> textObj.seeHealth(player1.getHealth());
-
-            case "exit"->{
+            case "attack", "a" -> player1.attackMove();
+            case "exit" -> {
                 textObj.exit();
                 System.exit(0);
             }
             default -> textObj.invalidInput();
-
         }
 
     }

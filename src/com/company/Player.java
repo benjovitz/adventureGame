@@ -8,15 +8,14 @@ public class Player {
     private Room playerPos;
     private ArrayList<Item> backpack;
     private int health;
-    private int cheeseBehavior = 5;
-    private int mushroomBehavior = -5;
+    private Item currentWeapon;
 
 
-    public Player (){
-        backpack= new ArrayList<>();
+    public Player() {
+        backpack = new ArrayList<>();
     }
 
-    public void setPlayerPos(Room playerPos){
+    public void setPlayerPos(Room playerPos) {
         this.playerPos = playerPos;
     }
 
@@ -68,23 +67,27 @@ public class Player {
     public void roomBehavior() {
         if (playerPos.getRoomBehavior() == 1) {
             System.out.println(playerPos.getDescription());
+            System.out.println(playerPos.getRoomItems());
             playerPos.setRoomBehavior(0);
         }
     }
-    public void takeItem (String itemName){
-       Item roomItem = playerPos.findItemInRoom(itemName);
-       if(roomItem!=null) {
-           playerPos.deleteItem(roomItem);
-           backpack.add(roomItem);
-       }else {
-           System.out.println("cant find "+itemName);
-       }
+
+    public void takeItem(String itemName) {
+        Item roomItem = playerPos.findItemInRoom(itemName);
+        if (roomItem != null) {
+            playerPos.deleteItem(roomItem);
+            backpack.add(roomItem);
+        } else {
+            System.out.println("cant find " + itemName);
+        }
     }
-    public void showBackpack(){
-    System.out.println(backpack);
-}
+
+    public void showBackpack() {
+        System.out.println(backpack);
+    }
+
     public Item findItemInBackpack(String itemName) {
-        for (int i = 0; i <backpack.size() ; i++) {
+        for (int i = 0; i < backpack.size(); i++) {
             Item tmp = backpack.get(i);
             if (tmp.getItemName().equals(itemName)) {
                 return tmp;
@@ -95,70 +98,81 @@ public class Player {
     }
 
 
-    public void deleteItem(Item item){
+    public void deleteItem(Item item) {
         backpack.remove(item);
     }
 
     public void dropItem(String itemName) {
-        if (findItemInBackpack(itemName)!=null) {
+        if (findItemInBackpack(itemName) != null) {
             Item playerItem = findItemInBackpack(itemName);
             deleteItem(playerItem);
             getCurrentRoom().dropItem(playerItem);
-        }else {
-            System.out.println("cant find "+itemName);
+        } else {
+            System.out.println("cant find " + itemName);
         }
 
     }
 
-    public void eatFood(String food){
-         if (findItemInBackpack(food) instanceof Food) {
+    public void eatFood(String food) {
+        if (findItemInBackpack(food) instanceof Food) {
             Item playerItem = findItemInBackpack(food);
-                deleteItem(playerItem);
-                checkFood(playerItem);
-        }else {
-            System.out.println("cant find "+food);
+            deleteItem(playerItem);
+            checkFood(playerItem);
+        } else {
+            System.out.println("cant find " + food);
         }
     }
 
-    public void checkFood(Item food){
-        setHealth(getHealth()+food.getItemBehavior());
+    public void checkFood(Item food) {
+        setHealth(getHealth() + food.getItemBehavior());
     }
 
-    public void equipWeapon(String weapon){
+    public void equipWeapon(String weapon) {
         if (findItemInBackpack(weapon) instanceof Weapon) {
             Item playerItem = findItemInBackpack(weapon);
             setWeaponBehavior(playerItem);
+            currentWeapon = playerItem;
 
-        }else {
-            System.out.println("cant find "+weapon);
+        } else {
+            System.out.println("cant find " + weapon);
         }
     }
 
-    public void unEquipWeapon(String weapon){
-        if(findItemInBackpack(weapon)instanceof Weapon){
+    public void unEquipWeapon(String weapon) {
+        if (findItemInBackpack(weapon) instanceof Weapon) {
             Item playerItem = findItemInBackpack(weapon);
             unEquip(playerItem);
-        }else{
-            System.out.println("cant find "+weapon);
+        } else {
+            System.out.println("cant find " + weapon);
         }
     }
 
-    public void setWeaponBehavior(Item weapon){
+    public void setWeaponBehavior(Item weapon) {
         weapon.setEquipped();
-        System.out.println(weapon +" is now equipped");
+        System.out.println(weapon + " is now equipped");
         equippedStatus(weapon);
     }
 
-    public void unEquip(Item weapon){
-        if(weapon.getEquippedStatus() ==1) {
+    public void unEquip(Item weapon) {
+        if (weapon.getEquippedStatus() == 1) {
             weapon.unEquipped();
-            System.out.println(weapon +" is now unequipped");
+            System.out.println(weapon + " is now unequipped");
             equippedStatus(weapon);
-        }else System.out.println("weapon is not equipped");
+        } else System.out.println("weapon is not equipped");
     }
 
-    public void equippedStatus(Item weapon){
+    public void equippedStatus(Item weapon) {
         System.out.println(weapon.getEquippedStatus());
+    }
+
+    public void attackMove() {
+        if (currentWeapon != null) {
+            currentWeapon.getItemBehavior();
+            System.out.println("whoosh");
+        } else {
+            System.out.println("You have no weapon equipped");
+        }
+
     }
 
 }

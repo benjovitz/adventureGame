@@ -53,7 +53,7 @@ public class Map {
         Food food2 = new Food("mushroom",-3,0);
 
         //weapons bliver oprettet
-        MeleWeapon meleeWeapon1 = new MeleWeapon("axe",3,0);
+        MeleeWeapon meleeWeapon1 = new MeleeWeapon("axe",3,0);
         RangedWeapon rangedWeapon1 = new RangedWeapon("bow",2,0);
 
         room1.addRoomItem(item1);
