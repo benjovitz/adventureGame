@@ -106,7 +106,7 @@ public class Player {
     }
 
     public void eatFood(String food){
-         if (findItemInBackpack(food)!=null) {
+         if (findItemInBackpack(food) instanceof Food) {
             Item playerItem = findItemInBackpack(food);
                 deleteItem(playerItem);
 
