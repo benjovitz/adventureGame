@@ -41,31 +41,6 @@ public class GameEngine {
             //splitting commands up
             String[] command = s.split(" ");
             menuPicker(command);
-            //switch for commands
-/*            switch (command[0]) {
-                case "go", "g" -> {
-                    textObj.movement(command[1]);
-                    invalidRouteChecker(command[1]);
-                    playerMovement(command[1]);
-                }
-                case "take", "t" -> player1.takeItem(command[1]);
-                case "eat" -> player1.eatFood(command[1]);
-                case "look", "l" -> {
-                    System.out.println(player1.getCurrentRoom().getDescription());
-                    System.out.println(player1.getCurrentRoom().getRoomItems());
-                }
-                case "help", "h" -> textObj.help();
-                case "backpack", "b" -> player1.showBackpack();
-                case "drop", "d" -> player1.dropItem(command[1]);
-                case "health", "hp" -> textObj.seeHealth(player1.getHealth());
-                case "exit" -> {
-                    stillRunning = false;
-                    textObj.exit();
-                }
-
-                default -> textObj.invalidInput();
-
-            }*/
         }
 
     }

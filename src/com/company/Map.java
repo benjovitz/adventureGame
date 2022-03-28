@@ -3,17 +3,6 @@ package com.company;
 public class Map {
 
     private Room starterRoom;
-    private Item coin;
-    private Item torch;
-    private Room room1;
-    private Room room2;
-    private Room room3;
-    private Room room4;
-    private Room room5;
-    private Room room6;
-    private Room room7;
-    private Room room8;
-    private Room room9;
 
     public void createWorld() {
 
@@ -55,16 +44,24 @@ public class Map {
         room9.setWest(room8);
 
         starterRoom = room1;
-
+        //items bliver oprettet
         Item item1 = new Item("coin",0);
         Item item2 = new Item("torch",0);
+
+        //food bliver oprettet
         Food food1 = new Food("cheese",3);
         Food food2 = new Food("mushroom",-3);
+
+        //weapons bliver oprettet
+        Weapon weapon1=new Weapon("axe",3);
+        Weapon weapon2 = new Weapon("bow",2);
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);
         room1.addRoomItem(food1);
         room2.addRoomItem(food2);
+        room1.addRoomItem(weapon1);
+        room4.addRoomItem(weapon2);
     }
 
 
@@ -72,5 +69,4 @@ public class Map {
     public Room getStarterRoom() {
         return starterRoom;
     }
-
 }

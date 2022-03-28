@@ -122,11 +122,7 @@ public class Player {
 
     public void checkFood(Item food){
         setHealth(getHealth()+food.getItemBehavior());
-
     }
-
-
-
 }
 
 
