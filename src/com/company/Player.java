@@ -108,9 +108,7 @@ public class Player {
     public void eatFood(String food){
          if (findItemInBackpack(food)!=null) {
             Item playerItem = findItemInBackpack(food);
-            if(playerItem.equals(food)) {
                 deleteItem(playerItem);
-            }
 
         }else {
             System.out.println("cant find "+food);
