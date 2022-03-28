@@ -172,6 +172,7 @@ public class Player {
             System.out.println("You have no weapon equipped");
         }
     }
+
     public void ammoChecker(){
         if(findItemInBackpack(currentWeapon.getItemName())instanceof RangedWeapon){
             if(currentWeapon.getAmmo()>0) {
