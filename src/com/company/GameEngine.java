@@ -92,6 +92,7 @@ public class GameEngine {
                 textObj.exit();
                 System.exit(0);
             }
+            default -> textObj.invalidInput();
 
         }
 
@@ -105,13 +106,11 @@ public class GameEngine {
                 playerMovement(command[1]);
             }
             case "take", "t" -> player1.takeItem(command[1]);
-            case "eat" -> {
-                player1.eatFood(command[1]);
-                player1.checkFood(command[1]);
-            }
+            case "eat" -> player1.eatFood(command[1]);
             case "drop", "d" -> player1.dropItem(command[1]);
-
+            default -> textObj.invalidInput();
         }
+
     }
 
     //movement directionpicker

@@ -56,8 +56,8 @@ public class Map {
 
         starterRoom = room1;
 
-        Item item1 = new Item("coin");
-        Item item2 = new Item("torch");
+        Item item1 = new Item("coin",0);
+        Item item2 = new Item("torch",0);
         Food food1 = new Food("cheese",3);
         Food food2 = new Food("mushroom",-3);
 

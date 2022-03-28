@@ -11,6 +11,7 @@ public class Player {
     private int cheeseBehavior = 5;
     private int mushroomBehavior = -5;
 
+
     public Player (){
         backpack= new ArrayList<>();
     }
@@ -113,23 +114,14 @@ public class Player {
          if (findItemInBackpack(food) instanceof Food) {
             Item playerItem = findItemInBackpack(food);
                 deleteItem(playerItem);
-
+                checkFood(playerItem);
         }else {
             System.out.println("cant find "+food);
         }
     }
 
-    public void checkFood(String food){
-        if(food.equals("cheese")){
-            //System.out.println("yes");
-            setHealth(getHealth()+cheeseBehavior);
-            System.out.println("you gained 5 health");
-        }
-        if(food.equals("mushroom")){
-            setHealth(getHealth()-mushroomBehavior);
-            System.out.println("you lost 5 health");
-        }
-
+    public void checkFood(Item food){
+        setHealth(getHealth()+food.getItemBehavior());
 
     }
 
