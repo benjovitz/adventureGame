@@ -39,31 +39,24 @@ public class GameEngine {
             String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
             //splitting commands up
             String[] command = s.split(" ");
+            menuPicker(command);
             //switch for commands
-            switch (command[0]) {
+/*            switch (command[0]) {
                 case "go", "g" -> {
                     textObj.movement(command[1]);
                     invalidRouteChecker(command[1]);
                     playerMovement(command[1]);
                 }
-                case "take", "t" -> {
-                    player1.takeItem(command[1]);
-                }
-                case "eat" -> {
-                    player1.eatFood(command[1]);
-                }
+                case "take", "t" -> player1.takeItem(command[1]);
+                case "eat" -> player1.eatFood(command[1]);
                 case "look", "l" -> {
                     System.out.println(player1.getCurrentRoom().getDescription());
                     System.out.println(player1.getCurrentRoom().getRoomItems());
                 }
                 case "help", "h" -> textObj.help();
                 case "backpack", "b" -> player1.showBackpack();
-                case "drop", "d" -> {
-                    //test
-                    player1.dropItem(command[1]);
-                }
-                case "health","hp" -> textObj.seeHealth(player1.getHealth());
-                //case "use","u" -> player1.useItem
+                case "drop", "d" -> player1.dropItem(command[1]);
+                case "health", "hp" -> textObj.seeHealth(player1.getHealth());
                 case "exit" -> {
                     stillRunning = false;
                     textObj.exit();
@@ -71,28 +64,56 @@ public class GameEngine {
 
                 default -> textObj.invalidInput();
 
-            }
+            }*/
         }
 
     }
 
+    public void menuPicker(String[] command) {
+        if(command.length==1){
+            oneWordSwitch(command);
+        } else {
+            twoWordSwitch(command);
+        }
+
+    }
+
+    public void oneWordSwitch(String[] command) {
+        switch (command[0]){
+            case "look", "l" -> {
+                System.out.println(player1.getCurrentRoom().getDescription());
+                System.out.println(player1.getCurrentRoom().getRoomItems());
+            }
+            case "help", "h" -> textObj.help();
+            case "backpack", "b" -> player1.showBackpack();
+            case "health", "hp" -> textObj.seeHealth(player1.getHealth());
+
+        }
+
+    }
+
+    public void twoWordSwitch(String[] command) {
+        switch (command[0]) {
+            case "go", "g" -> {
+                textObj.movement(command[1]);
+                invalidRouteChecker(command[1]);
+                playerMovement(command[1]);
+            }
+            case "take", "t" -> player1.takeItem(command[1]);
+            case "eat" -> player1.eatFood(command[1]);
+            case "drop", "d" -> player1.dropItem(command[1]);
+
+        }
+    }
 
     //movement directionpicker
     public void playerMovement(String direction) {
         switch (direction) {
 
-            case "north", "n" -> {
-                player1.moveNorth();
-            }
-            case "south", "s" -> {
-                player1.moveSouth();
-            }
-            case "west", "w" -> {
-                player1.moveWest();
-            }
-            case "east", "e" -> {
-                player1.moveEast();
-            }
+            case "north", "n" -> player1.moveNorth();
+            case "south", "s" -> player1.moveSouth();
+            case "west", "w" -> player1.moveWest();
+            case "east", "e" -> player1.moveEast();
             default -> textObj.invalidInput();
         }
 

@@ -79,7 +79,6 @@ public class Player {
     public void showBackpack(){
     System.out.println(backpack);
 }
-//test
     public Item findItemInBackpack(String itemName) {
         for (int i = 0; i <backpack.size() ; i++) {
             Item tmp = backpack.get(i);
