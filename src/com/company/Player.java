@@ -165,18 +165,21 @@ public class Player {
 
     public void attackMove() {
         if (currentWeapon != null) {
+            ammoChecker();
             currentWeapon.getItemBehavior();
             System.out.println("whoosh");
-            ammoChecker();
         } else {
             System.out.println("You have no weapon equipped");
         }
     }
     public void ammoChecker(){
         if(findItemInBackpack(currentWeapon.getItemName())instanceof RangedWeapon){
-            System.out.println(currentWeapon.getAmmo());
-            currentWeapon.setAmmo(currentWeapon.getAmmo()-1);
-            System.out.println(currentWeapon.getAmmo());
+            if(currentWeapon.getAmmo()>0) {
+                currentWeapon.setAmmo(currentWeapon.getAmmo() - 1);
+                System.out.println(currentWeapon.getAmmo());
+            } else {
+                System.out.println("you have no ammo left");
+            }
         }
     }
 }
