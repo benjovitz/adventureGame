@@ -49,6 +49,9 @@ public class GameEngine {
                 case "take", "t" -> {
                     player1.takeItem(command[1]);
                 }
+                case "eat" -> {
+                    player1.eatFood(command[1]);
+                }
                 case "look", "l" -> {
                     System.out.println(player1.getCurrentRoom().getDescription());
                     System.out.println(player1.getCurrentRoom().getRoomItems());
