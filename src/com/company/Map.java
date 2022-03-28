@@ -58,8 +58,8 @@ public class Map {
 
         Item item1 = new Item("coin");
         Item item2 = new Item("torch");
-        Food food1 = new Food("cheese");
-        Food food2 = new Food("mushroom");
+        Food food1 = new Food("cheese",3);
+        Food food2 = new Food("mushroom",-3);
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);
