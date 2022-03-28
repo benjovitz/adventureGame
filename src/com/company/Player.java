@@ -8,6 +8,8 @@ public class Player {
     private Room playerPos;
     private ArrayList<Item> backpack;
     private int health;
+    private int cheeseBehavior = 5;
+    private int mushroomBehavior = -5;
 
     public Player (){
         backpack= new ArrayList<>();
@@ -120,11 +122,11 @@ public class Player {
     public void checkFood(String food){
         if(food.equals("cheese")){
             //System.out.println("yes");
-            setHealth(getHealth()+5);
+            setHealth(getHealth()+cheeseBehavior);
             System.out.println("you gained 5 health");
         }
         if(food.equals("mushroom")){
-            setHealth(getHealth()-5);
+            setHealth(getHealth()-mushroomBehavior);
             System.out.println("you lost 5 health");
         }
 
