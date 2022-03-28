@@ -26,6 +26,10 @@ public class Item {
     public void setEquipped(){
         this.equipped = 1;
     }
+    public void unEquipped(){
+        this.equipped = 0;
+    }
+
 
     public int getEquippedStatus(){
         return equipped;

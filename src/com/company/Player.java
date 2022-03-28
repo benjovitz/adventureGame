@@ -134,10 +134,27 @@ public class Player {
         }
     }
 
+    public void unEquipWeapon(String weapon){
+        if(findItemInBackpack(weapon)instanceof Weapon){
+            Item playerItem = findItemInBackpack(weapon);
+            unEquip(playerItem);
+        }else{
+            System.out.println("cant find "+weapon);
+        }
+    }
+
     public void setWeaponBehavior(Item weapon){
         weapon.setEquipped();
         System.out.println(weapon +" is now equipped");
         equippedStatus(weapon);
+    }
+
+    public void unEquip(Item weapon){
+        if(weapon.getEquippedStatus() ==1) {
+            weapon.unEquipped();
+            System.out.println(weapon +" is now unequipped");
+            equippedStatus(weapon);
+        }else System.out.println("weapon is not equipped");
     }
 
     public void equippedStatus(Item weapon){

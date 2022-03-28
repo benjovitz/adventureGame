@@ -85,7 +85,7 @@ public class GameEngine {
             case "eat" -> player1.eatFood(command[1]);
             case "drop", "d" -> player1.dropItem(command[1]);
             case "equip" -> player1.equipWeapon(command[1]);
-            //case "equipped?" -> player1.equippedStatus();
+            case "unequip" -> player1.unEquipWeapon(command[1]);
             default -> textObj.invalidInput();
         }
 
