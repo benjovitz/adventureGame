@@ -1,12 +1,13 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Player {
 
     private Room playerPos;
     private ArrayList<Item> backpack;
-    private int health =10;
+    private int health;
 
     public Player (){
         backpack= new ArrayList<>();
@@ -90,6 +91,7 @@ public class Player {
         return null;
     }
 
+
     public void deleteItem(Item item){
         backpack.remove(item);
     }
@@ -113,6 +115,14 @@ public class Player {
         }else {
             System.out.println("cant find "+food);
         }
+    }
+
+    public void checkFood(String food){
+        if(food.equals( "cheese")){
+            System.out.println("yes");
+            setHealth(getHealth()+5);
+        }
+
     }
 
 

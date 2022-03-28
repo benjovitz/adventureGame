@@ -16,6 +16,7 @@ public class GameEngine {
     public GameEngine() {
         textObj = new Text();
         player1 = new Player();
+        player1.setHealth(20);
         map = new Map();
         music1 = new Music();
         keyboard = new Scanner(System.in);
@@ -100,7 +101,10 @@ public class GameEngine {
                 playerMovement(command[1]);
             }
             case "take", "t" -> player1.takeItem(command[1]);
-            case "eat" -> player1.eatFood(command[1]);
+            case "eat" -> {
+                player1.eatFood(command[1]);
+                player1.checkFood(command[1]);
+            }
             case "drop", "d" -> player1.dropItem(command[1]);
 
         }
