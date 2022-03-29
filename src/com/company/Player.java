@@ -143,17 +143,11 @@ public class Player {
         }
     }
 
-    public void setWeaponBehavior(Item weapon) {
-        weapon.setEquipped();
-        System.out.println(weapon + " is now equipped");
-        equippedStatus(weapon);
-    }
 
     public void unEquip(Item weapon) {
-        if (weapon.getEquippedStatus() == 1) {
-            weapon.unEquipped();
+        if (currentWeapon!=null) {
+            currentWeapon=null;
             System.out.println(weapon + " is now unequipped");
-            equippedStatus(weapon);
         } else System.out.println("weapon is not equipped");
     }
 
