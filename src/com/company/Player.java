@@ -157,6 +157,7 @@ public class Player {
             currentWeapon.ammoChecker();
             currentWeapon.getDamage();
             System.out.println("whoosh");
+
         } else {
             System.out.println("You have no weapon equipped");
         }

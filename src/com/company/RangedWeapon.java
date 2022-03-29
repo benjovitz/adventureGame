@@ -12,7 +12,9 @@ public class RangedWeapon extends Weapon{
     public void ammoChecker() {
         if(getAmmo() == 0){
             System.out.println("you dont have amo");
-        }else System.out.println("phew");
+        }else
+            setAmmo(getAmmo()-1);
+            System.out.println("phew, you have " + getAmmo() + " left");
     }
     public void setAmmo(int ammo){
         this.ammo = ammo;
