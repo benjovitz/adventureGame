@@ -8,7 +8,7 @@ public class Player {
     private Room playerPos;
     private ArrayList<Item> backpack;
     private int health;
-    private Item currentWeapon;
+    private Weapon currentWeapon;
 
 
     public Player() {
@@ -126,13 +126,13 @@ public class Player {
         setHealth(getHealth() + food.getItemBehavior());
     }
 
-    public void equipWeapon(String weapon) {
-        if (findItemInBackpack(weapon) instanceof Weapon) {
-            Item playerItem = findItemInBackpack(weapon);
+    public void equipWeapon(String weaponName) {
+        if (findItemInBackpack(weaponName) instanceof Weapon ) {
+            Weapon playerItem = (Weapon)findItemInBackpack(weaponName);
             setWeaponBehavior(playerItem);
             currentWeapon = playerItem;
         } else {
-            System.out.println("cant find " + weapon);
+            System.out.println("cant find " + weaponName);
         }
     }
 
