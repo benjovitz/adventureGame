@@ -112,18 +112,18 @@ public class Player {
 
     }
 
-    public void eatFood(String food) {
-        if (findItemInBackpack(food) instanceof Food) {
-            Item playerItem = findItemInBackpack(food);
-            deleteItem(playerItem);
-            checkFood(playerItem);
+    public void eatFood(String foodName) {
+        if (findItemInBackpack(foodName) instanceof Food) {
+            Food foodItem = (Food)findItemInBackpack(foodName);
+            deleteItem(foodItem);
+            checkFood(foodItem);
         } else {
-            System.out.println("cant find " + food);
+            System.out.println("cant find " + foodName);
         }
     }
 
-    public void checkFood(Item food) {
-        setHealth(getHealth() + food.getItemBehavior());
+    public void checkFood(Food food) {
+        setHealth(getHealth() + food.getHealthGain());
     }
 
     public void equipWeapon(String weaponName) {
@@ -151,14 +151,11 @@ public class Player {
         } else System.out.println("weapon is not equipped");
     }
 
-    public void equippedStatus(Item weapon) {
-        System.out.println(weapon.getEquippedStatus());
-    }
 
     public void attackMove() {
         if (currentWeapon != null) {
-            ammoChecker();
-            currentWeapon.getItemBehavior();
+            currentWeapon.ammoChecker();
+            currentWeapon.getDamage();
             System.out.println("whoosh");
         } else {
             System.out.println("You have no weapon equipped");

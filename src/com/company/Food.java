@@ -8,4 +8,7 @@ public class Food extends Item{
         this.healthGain=healthgain;
     }
 
+    public int getHealthGain() {
+        return healthGain;
+    }
 }
