@@ -127,21 +127,19 @@ public class Player {
     }
 
     public void equipWeapon(String weaponName) {
-        if (findItemInBackpack(weaponName) instanceof Weapon ) {
-            Weapon playerItem = (Weapon)findItemInBackpack(weaponName);
-            setWeaponBehavior(playerItem);
-            currentWeapon = playerItem;
+        if (findItemInBackpack(weaponName) instanceof Weapon) {
+            currentWeapon = (Weapon)findItemInBackpack(weaponName);
         } else {
             System.out.println("cant find " + weaponName);
         }
     }
 
-    public void unEquipWeapon(String weapon) {
-        if (findItemInBackpack(weapon) instanceof Weapon) {
-            Item playerItem = findItemInBackpack(weapon);
-            unEquip(playerItem);
+    public void unEquipWeapon(String weaponName) {
+        if (findItemInBackpack(weaponName) instanceof Weapon) {
+            currentWeapon = (Weapon)findItemInBackpack(weaponName);
+            unEquip(currentWeapon);
         } else {
-            System.out.println("cant find " + weapon);
+            System.out.println("cant find " + weaponName);
         }
     }
 
