@@ -165,16 +165,7 @@ public class Player {
         }
     }
 
-    public void ammoChecker(){
-        if(findItemInBackpack(currentWeapon.getItemName())instanceof RangedWeapon){
-            if(currentWeapon.getAmmo()>0) {
-                currentWeapon.setAmmo(currentWeapon.getAmmo() - 1);
-                System.out.println(currentWeapon.getAmmo());
-            } else {
-                System.out.println("you have no ammo left");
-            }
-        }
-    }
+
 }
 
 

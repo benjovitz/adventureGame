@@ -10,6 +10,17 @@ public class RangedWeapon extends Weapon{
 
     @Override
     public void ammoChecker() {
+        if(getAmmo() == 0){
+            System.out.println("you dont have amo");
+        }else System.out.println("phew");
+    }
+    public void setAmmo(int ammo){
+        this.ammo = ammo;
 
     }
+
+    public int getAmmo(){
+        return ammo;
+    }
+
 }
