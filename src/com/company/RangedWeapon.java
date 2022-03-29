@@ -24,14 +24,4 @@ public class RangedWeapon extends Weapon{
     public int getAmmo(){
         return ammo;
     }
-
-    @Override
-    public int getDamage() {
-        return 0;
-    }
-
-    @Override
-    public void setDamage() {
-
-    }
 }

@@ -155,7 +155,7 @@ public class Player {
     public void attackMove() {
         if (currentWeapon != null) {
             currentWeapon.ammoChecker();
-            currentWeapon.getDamage();
+            System.out.println(currentWeapon.getDamage());
             System.out.println("whoosh");
 
         } else {

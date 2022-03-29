@@ -9,13 +9,4 @@ public class MeleeWeapon extends Weapon{
     public void ammoChecker() {
     }
 
-    @Override
-    public void setDamage() {
-
-    }
-
-    @Override
-    public int getDamage() {
-        return 0;
-    }
 }

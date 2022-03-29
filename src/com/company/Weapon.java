@@ -1,7 +1,7 @@
 package com.company;
 
 public abstract class Weapon extends Item {
-    private int damage;
+    protected int damage;
 
     public Weapon(String name, int damage) {
         super(name);
@@ -10,7 +10,9 @@ public abstract class Weapon extends Item {
 
     public abstract void ammoChecker();
 
-    public abstract void setDamage();
-    public abstract int getDamage();
+
+    public  int getDamage(){
+        return damage;
+    }
 
 }

@@ -56,6 +56,7 @@ public class Map {
         MeleeWeapon meleeWeapon1 = new MeleeWeapon("axe",3);
         RangedWeapon rangedWeapon1 = new RangedWeapon("bow",2,10);
 
+
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);
         room1.addRoomItem(food1);
