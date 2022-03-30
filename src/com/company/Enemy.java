@@ -33,4 +33,11 @@ public class Enemy {
         setHealth(getHealth()-damage);
     }
 
+    public int getAttackDmg(){
+        return currentWeapon.getDamage();
+
+    }
+
+
+
 }

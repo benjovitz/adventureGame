@@ -81,6 +81,8 @@ public class GameEngine {
                 currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
                 currentEnemy.hit(player1.attackMove());
                 System.out.println(currentEnemy.getHealth());
+                player1.hit(currentEnemy.getAttackDmg());
+                System.out.println(player1.getHealth());
             }
             case "take", "t" -> player1.takeItem(command[1]);
             case "eat" -> player1.eatFood(command[1]);
