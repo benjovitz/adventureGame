@@ -29,5 +29,8 @@ public class Enemy {
         return name;
 
     }
+    public void hit(int damage){
+        setHealth(getHealth()-damage);
+    }
 
 }

@@ -102,6 +102,16 @@ public class Room {
         return null;
     }
 
+    public Enemy findEnemy(String enemyName){
+        for (int i = 0; i < enemies.size(); i++) {
+            Enemy tmp = enemies.get(i);
+            if(tmp.getName().equals(enemyName)){
+                return tmp;
+            }
+        }
+        return null;
+    }
+
     public void deleteItem(Item item){
         roomItems.remove(item);
     }

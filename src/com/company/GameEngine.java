@@ -9,6 +9,7 @@ public class GameEngine {
     private final Map map;
     private final Music music1;
     private final Scanner keyboard;
+    private Enemy currentEnemy;
 
     //private final Items coin;
 
@@ -60,7 +61,6 @@ public class GameEngine {
             case "help", "h" -> textObj.help();
             case "backpack", "b" -> player1.showBackpack();
             case "health", "hp" -> textObj.seeHealth(player1.getHealth());
-            case "attack", "a" -> player1.attackMove();
             case "exit" -> {
                 textObj.exit();
                 System.exit(0);
@@ -76,6 +76,11 @@ public class GameEngine {
                 textObj.movement(command[1]);
                 invalidRouteChecker(command[1]);
                 playerMovement(command[1]);
+            }
+            case "attack", "a" -> {
+                currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
+                currentEnemy.hit(player1.attackMove());
+                System.out.println(currentEnemy.getHealth());
             }
             case "take", "t" -> player1.takeItem(command[1]);
             case "eat" -> player1.eatFood(command[1]);

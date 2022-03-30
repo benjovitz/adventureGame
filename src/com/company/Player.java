@@ -152,14 +152,15 @@ public class Player {
     }
 
 
-    public void attackMove() {
+    public int attackMove() {
         if (currentWeapon != null) {
             currentWeapon.ammoChecker();
             System.out.println(currentWeapon.getDamage());
-            System.out.println("whoosh");
+            return currentWeapon.getDamage();
 
         } else {
             System.out.println("You have no weapon equipped");
+            return 0;
         }
     }
 
