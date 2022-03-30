@@ -55,7 +55,12 @@ public class Map {
         //weapons bliver oprettet
         MeleeWeapon meleeWeapon1 = new MeleeWeapon("axe",3);
         RangedWeapon rangedWeapon1 = new RangedWeapon("bow",2,10);
+        MeleeWeapon meleeWeapon2 = new MeleeWeapon("black oozing branch",1);
 
+
+        Enemy troll1 = new Enemy("lars", 5,meleeWeapon2);
+
+        room2.addEnemies(troll1);
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);

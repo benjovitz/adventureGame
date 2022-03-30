@@ -17,6 +17,7 @@ public class GameEngine {
         textObj = new Text();
         player1 = new Player();
         player1.setHealth(20);
+
         map = new Map();
         music1 = new Music();
         keyboard = new Scanner(System.in);
@@ -54,6 +55,7 @@ public class GameEngine {
             case "look", "l" -> {
                 System.out.println(player1.getCurrentRoom().getDescription());
                 System.out.println(player1.getCurrentRoom().getRoomItems());
+                System.out.println(player1.getCurrentRoom().getEnemies());
             }
             case "help", "h" -> textObj.help();
             case "backpack", "b" -> player1.showBackpack();

@@ -11,6 +11,7 @@ public class Room {
     private Room west;
     private int roomBehavior;
     private ArrayList<Item> roomItems;
+    private ArrayList<Enemy>enemies;
 
 
     public Room(String name, String description) {
@@ -18,6 +19,7 @@ public class Room {
         this.description = description;
         this.roomBehavior = 1;
         roomItems = new ArrayList<>();
+        enemies = new ArrayList<>();
 
 
 
@@ -108,10 +110,20 @@ public class Room {
         return roomItems;
     }
 
+    public ArrayList<Enemy> getEnemies() {
+        return enemies;
+    }
+
+    public void addEnemies(Enemy enemy){
+        enemies.add(enemy);
+    }
+
     //test
     public void dropItem (Item playerItem){
         roomItems.add(playerItem);
     }
+
+
 
 
 }
