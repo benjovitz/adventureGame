@@ -11,8 +11,4 @@ public abstract class Weapon extends Item {
     public abstract int getWeaponStatus();
 
 
-    public  int getDamage(){
-        return damage;
-    }
-
 }

@@ -58,9 +58,9 @@ public class Map {
         MeleeWeapon meleeWeapon2 = new MeleeWeapon("black oozing branch",1);
 
 
-        Enemy troll1 = new Enemy("lars", 100,meleeWeapon2);
+        Enemy troll1 = new Enemy("lars", 8,meleeWeapon2);
 
-        room1.addEnemies(troll1);
+        room2.addEnemies(troll1);
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);

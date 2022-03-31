@@ -37,7 +37,7 @@ public class Enemy {
         return currentWeapon;
     }
     public int attack(){
-        return currentWeapon.getDamage();
+        return currentWeapon.getWeaponStatus();
     }
 
 

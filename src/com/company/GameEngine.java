@@ -101,22 +101,6 @@ public class GameEngine {
         }
 
     }
-    /*public void battleSwitch(String[]command){
-        boolean inCombat=true;
-
-        while (inCombat){
-            if(player1.getHealth()<0||currentEnemy.getHealth()<0){
-                inCombat=false;
-            }
-            switch (command[0]){
-                case "attack","a" ->{
-                    currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
-                    System.out.println(currentEnemy.getHealth());
-                }
-            }
-            currentEnemy.hit(player1.attackMove());
-        }
-    }*/
 
     //movement directionpicker
     public void playerMovement(String direction) {
