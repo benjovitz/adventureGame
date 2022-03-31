@@ -18,7 +18,6 @@ public class GameEngine {
         textObj = new Text();
         player1 = new Player();
         player1.setHealth(20);
-
         map = new Map();
         music1 = new Music();
         keyboard = new Scanner(System.in);
@@ -34,7 +33,7 @@ public class GameEngine {
 
     public void mainMenu() {
         boolean stillRunning = true;
-        while (player1.getHealth()<=0) {
+        while (stillRunning||player1.getHealth()>=0) {
             String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
             //splitting commands up
             String[] command = s.split(" ");
