@@ -80,12 +80,12 @@ public class GameEngine {
                 currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
                 currentEnemy.hit(player1.attackMove());
                 System.out.println("enemy health " + currentEnemy.getHealth());
-                currentEnemy.hit(player1.attackMove());
+                player1.hit(currentEnemy.attack());
                 System.out.println("player health "+player1.getHealth());
-                //if(currentEnemy.getHealth()<0){
+                if(currentEnemy.getHealth()<=0){
                     player1.getCurrentRoom().addRoomItem(currentEnemy.deathDrop());
                     player1.getCurrentRoom().removeEnemy(currentEnemy);
-                //}
+                }
                 //battleSwitch(command);
             }
             case "take", "t" -> player1.takeItem(command[1]);

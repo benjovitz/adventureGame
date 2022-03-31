@@ -36,6 +36,9 @@ public class Enemy {
     public Weapon deathDrop(){
         return currentWeapon;
     }
+    public int attack(){
+        return currentWeapon.getDamage();
+    }
 
 
 }
