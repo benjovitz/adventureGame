@@ -60,7 +60,7 @@ public class Map {
 
         Enemy troll1 = new Enemy("lars", 5,meleeWeapon2);
 
-        room2.addEnemies(troll1);
+        room1.addEnemies(troll1);
 
         room1.addRoomItem(item1);
         room2.addRoomItem(item2);

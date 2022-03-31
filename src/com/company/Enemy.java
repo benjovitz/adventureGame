@@ -33,4 +33,9 @@ public class Enemy {
         setHealth(getHealth()-damage);
     }
 
+    public Weapon deathDrop(){
+        return currentWeapon;
+    }
+
+
 }

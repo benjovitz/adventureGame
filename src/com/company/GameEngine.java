@@ -34,7 +34,7 @@ public class GameEngine {
 
     public void mainMenu() {
         boolean stillRunning = true;
-        while (stillRunning) {
+        while (player1.getHealth()<=0) {
             String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
             //splitting commands up
             String[] command = s.split(" ");
@@ -80,7 +80,14 @@ public class GameEngine {
             case "attack", "a" -> {
                 currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
                 currentEnemy.hit(player1.attackMove());
-                System.out.println(currentEnemy.getHealth());
+                System.out.println("enemy health " + currentEnemy.getHealth());
+                currentEnemy.hit(player1.attackMove());
+                System.out.println("player health "+player1.getHealth());
+                if(currentEnemy.getHealth()<0){
+                    player1.getCurrentRoom().addRoomItem(currentEnemy.deathDrop());
+                    player1.getCurrentRoom().removeEnemy(currentEnemy);
+                }
+                //battleSwitch(command);
             }
             case "take", "t" -> player1.takeItem(command[1]);
             case "eat" -> player1.eatFood(command[1]);
@@ -91,6 +98,22 @@ public class GameEngine {
         }
 
     }
+    /*public void battleSwitch(String[]command){
+        boolean inCombat=true;
+
+        while (inCombat){
+            if(player1.getHealth()<0||currentEnemy.getHealth()<0){
+                inCombat=false;
+            }
+            switch (command[0]){
+                case "attack","a" ->{
+                    currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
+                    System.out.println(currentEnemy.getHealth());
+                }
+            }
+            currentEnemy.hit(player1.attackMove());
+        }
+    }*/
 
     //movement directionpicker
     public void playerMovement(String direction) {

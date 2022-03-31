@@ -68,6 +68,7 @@ public class Player {
         if (playerPos.getRoomBehavior() == 1) {
             System.out.println(playerPos.getDescription());
             System.out.println(playerPos.getRoomItems());
+            System.out.println(playerPos.getEnemies());
             playerPos.setRoomBehavior(0);
         }
     }

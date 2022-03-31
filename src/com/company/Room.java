@@ -127,6 +127,9 @@ public class Room {
     public void addEnemies(Enemy enemy){
         enemies.add(enemy);
     }
+    public void removeEnemy(Enemy enemy){
+        enemies.remove(enemy);
+    }
 
     //test
     public void dropItem (Item playerItem){
