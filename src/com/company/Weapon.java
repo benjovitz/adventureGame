@@ -8,7 +8,7 @@ public abstract class Weapon extends Item {
         this.damage = damage;
     }
 
-    public abstract void ammoChecker();
+    public abstract int getWeaponStatus();
 
 
     public  int getDamage(){

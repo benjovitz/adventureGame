@@ -6,7 +6,8 @@ public class MeleeWeapon extends Weapon{
     }
 
     @Override
-    public void ammoChecker() {
+    public int getWeaponStatus() {
+        return damage;
     }
 
 }

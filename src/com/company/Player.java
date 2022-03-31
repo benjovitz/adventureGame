@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Player {
 
@@ -155,11 +154,9 @@ public class Player {
 
     public int attackMove() {
         if (currentWeapon != null) {
-            currentWeapon.ammoChecker();
-            System.out.println(currentWeapon.getDamage());
-            return currentWeapon.getDamage();
+            return currentWeapon.getWeaponStatus();
 
-        } else {
+        }else {
             System.out.println("You have no weapon equipped");
             return 0;
         }
