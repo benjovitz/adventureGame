@@ -7,6 +7,9 @@ public abstract class Weapon extends Item {
         super(name);
         this.damage = damage;
     }
+    public String specs(){
+        return name+ " damage "+damage;
+    }
 
     public abstract int getWeaponStatus();
 

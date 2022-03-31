@@ -1,7 +1,7 @@
 package com.company;
 
 public class Item {
-    private String name;
+    protected String name;
 
     public Item(String name) {
         this.name = name;
@@ -14,6 +14,9 @@ public class Item {
 
     public String toString() {
 
+        return name;
+    }
+    public String specs(){
         return name;
     }
 

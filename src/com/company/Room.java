@@ -116,12 +116,12 @@ public class Room {
         roomItems.remove(item);
     }
 
-    public ArrayList<Item> getRoomItems() {
-        return roomItems;
+    public String getRoomItems() {
+        return roomItems.toString();
     }
 
-    public ArrayList<Enemy> getEnemies() {
-        return enemies;
+    public String getEnemies() {
+        return enemies.toString();
     }
 
     public void addEnemies(Enemy enemy){

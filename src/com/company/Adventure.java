@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Adventure {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         GameEngine obj = new GameEngine();
         obj.mainMenu();
     }

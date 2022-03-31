@@ -116,14 +116,16 @@ public class Player {
         if (findItemInBackpack(foodName) instanceof Food) {
             Food foodItem = (Food)findItemInBackpack(foodName);
             deleteItem(foodItem);
-            checkFood(foodItem);
+            gainHealth(foodItem);
         } else {
             System.out.println("cant find " + foodName);
         }
     }
 
-    public void checkFood(Food food) {
-        setHealth(getHealth() + food.getHealthGain());
+    public void gainHealth(Food food) {
+        if(health<=100){
+            setHealth(getHealth() + food.getHealthGain());
+        }
     }
 
     public void equipWeapon(String weaponName) {

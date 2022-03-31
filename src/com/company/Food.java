@@ -11,4 +11,9 @@ public class Food extends Item{
     public int getHealthGain() {
         return healthGain;
     }
+
+    @Override
+    public String specs() {
+        return name+ " healthgain "+healthGain;
+    }
 }

@@ -14,8 +14,8 @@ public class RangedWeapon extends Weapon{
             return 0;
         }else
             setAmmo(getAmmo()-1);
-            System.out.println("phew, you have " + getAmmo() + " left");
-            return damage;
+        System.out.println("phew, you have " + getAmmo() + " left");
+        return damage;
     }
 
     public void setAmmo(int ammo){
@@ -25,5 +25,8 @@ public class RangedWeapon extends Weapon{
 
     public int getAmmo(){
         return ammo;
+    }
+    public String specs(){
+        return name+ " damage "+damage+" ammo "+ammo;
     }
 }
