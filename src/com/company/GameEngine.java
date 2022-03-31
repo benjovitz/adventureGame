@@ -33,7 +33,7 @@ public class GameEngine {
 
     public void mainMenu() {
         boolean stillRunning = true;
-        while (stillRunning||player1.getHealth()>=0) {
+        while (stillRunning || player1.getHealth() >= 0) {
             String s = keyboard.nextLine().toLowerCase(Locale.ROOT).trim();
             //splitting commands up
             String[] command = s.split(" ");
@@ -77,14 +77,18 @@ public class GameEngine {
                 playerMovement(command[1]);
             }
             case "attack", "a" -> {
-                currentEnemy=player1.getCurrentRoom().findEnemy(command[1]);
-                currentEnemy.hit(player1.attackMove());
-                System.out.println("enemy health " + currentEnemy.getHealth());
-                player1.hit(currentEnemy.attack());
-                System.out.println("player health "+player1.getHealth());
-                if(currentEnemy.getHealth()<=0){
-                    player1.getCurrentRoom().addRoomItem(currentEnemy.deathDrop());
-                    player1.getCurrentRoom().removeEnemy(currentEnemy);
+                currentEnemy = player1.getCurrentRoom().findEnemy(command[1]);
+                if (currentEnemy == null) {
+                    System.out.println("no enemies");
+                } else {
+                    currentEnemy.hit(player1.attackMove());
+                    System.out.println("enemy health " + currentEnemy.getHealth());
+                    player1.hit(currentEnemy.attack());
+                    System.out.println("player health " + player1.getHealth());
+                    if (currentEnemy.getHealth() <= 0) {
+                        player1.getCurrentRoom().addRoomItem(currentEnemy.deathDrop());
+                        player1.getCurrentRoom().removeEnemy(currentEnemy);
+                    }
                 }
                 //battleSwitch(command);
             }
