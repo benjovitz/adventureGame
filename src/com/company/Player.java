@@ -165,6 +165,10 @@ public class Player {
         }
     }
 
+    public void hit(int dmg){
+        setHealth(getHealth()-dmg);
+    }
+
 
 }
 
